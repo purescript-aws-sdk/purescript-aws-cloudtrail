@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -21,7 +20,7 @@ options = defaultOptions { unwrapSingleConstructors = true }
 -- | <p>Specifies the tags to add to a trail.</p>
 newtype AddTagsRequest = AddTagsRequest 
   { "ResourceId" :: (String)
-  , "TagsList" :: NullOrUndefined (TagsList)
+  , "TagsList" :: Maybe (TagsList)
   }
 derive instance newtypeAddTagsRequest :: Newtype AddTagsRequest _
 derive instance repGenericAddTagsRequest :: Generic AddTagsRequest _
@@ -31,12 +30,12 @@ instance encodeAddTagsRequest :: Encode AddTagsRequest where encode = genericEnc
 
 -- | Constructs AddTagsRequest from required parameters
 newAddTagsRequest :: String -> AddTagsRequest
-newAddTagsRequest _ResourceId = AddTagsRequest { "ResourceId": _ResourceId, "TagsList": (NullOrUndefined Nothing) }
+newAddTagsRequest _ResourceId = AddTagsRequest { "ResourceId": _ResourceId, "TagsList": Nothing }
 
 -- | Constructs AddTagsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAddTagsRequest' :: String -> ( { "ResourceId" :: (String) , "TagsList" :: NullOrUndefined (TagsList) } -> {"ResourceId" :: (String) , "TagsList" :: NullOrUndefined (TagsList) } ) -> AddTagsRequest
-newAddTagsRequest' _ResourceId customize = (AddTagsRequest <<< customize) { "ResourceId": _ResourceId, "TagsList": (NullOrUndefined Nothing) }
+newAddTagsRequest' :: String -> ( { "ResourceId" :: (String) , "TagsList" :: Maybe (TagsList) } -> {"ResourceId" :: (String) , "TagsList" :: Maybe (TagsList) } ) -> AddTagsRequest
+newAddTagsRequest' _ResourceId customize = (AddTagsRequest <<< customize) { "ResourceId": _ResourceId, "TagsList": Nothing }
 
 
 
@@ -83,14 +82,14 @@ instance encodeCloudWatchLogsDeliveryUnavailableException :: Encode CloudWatchLo
 newtype CreateTrailRequest = CreateTrailRequest 
   { "Name" :: (String)
   , "S3BucketName" :: (String)
-  , "S3KeyPrefix" :: NullOrUndefined (String)
-  , "SnsTopicName" :: NullOrUndefined (String)
-  , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean)
-  , "IsMultiRegionTrail" :: NullOrUndefined (Boolean)
-  , "EnableLogFileValidation" :: NullOrUndefined (Boolean)
-  , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String)
-  , "CloudWatchLogsRoleArn" :: NullOrUndefined (String)
-  , "KmsKeyId" :: NullOrUndefined (String)
+  , "S3KeyPrefix" :: Maybe (String)
+  , "SnsTopicName" :: Maybe (String)
+  , "IncludeGlobalServiceEvents" :: Maybe (Boolean)
+  , "IsMultiRegionTrail" :: Maybe (Boolean)
+  , "EnableLogFileValidation" :: Maybe (Boolean)
+  , "CloudWatchLogsLogGroupArn" :: Maybe (String)
+  , "CloudWatchLogsRoleArn" :: Maybe (String)
+  , "KmsKeyId" :: Maybe (String)
   }
 derive instance newtypeCreateTrailRequest :: Newtype CreateTrailRequest _
 derive instance repGenericCreateTrailRequest :: Generic CreateTrailRequest _
@@ -100,29 +99,29 @@ instance encodeCreateTrailRequest :: Encode CreateTrailRequest where encode = ge
 
 -- | Constructs CreateTrailRequest from required parameters
 newCreateTrailRequest :: String -> String -> CreateTrailRequest
-newCreateTrailRequest _Name _S3BucketName = CreateTrailRequest { "Name": _Name, "S3BucketName": _S3BucketName, "CloudWatchLogsLogGroupArn": (NullOrUndefined Nothing), "CloudWatchLogsRoleArn": (NullOrUndefined Nothing), "EnableLogFileValidation": (NullOrUndefined Nothing), "IncludeGlobalServiceEvents": (NullOrUndefined Nothing), "IsMultiRegionTrail": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "S3KeyPrefix": (NullOrUndefined Nothing), "SnsTopicName": (NullOrUndefined Nothing) }
+newCreateTrailRequest _Name _S3BucketName = CreateTrailRequest { "Name": _Name, "S3BucketName": _S3BucketName, "CloudWatchLogsLogGroupArn": Nothing, "CloudWatchLogsRoleArn": Nothing, "EnableLogFileValidation": Nothing, "IncludeGlobalServiceEvents": Nothing, "IsMultiRegionTrail": Nothing, "KmsKeyId": Nothing, "S3KeyPrefix": Nothing, "SnsTopicName": Nothing }
 
 -- | Constructs CreateTrailRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateTrailRequest' :: String -> String -> ( { "Name" :: (String) , "S3BucketName" :: (String) , "S3KeyPrefix" :: NullOrUndefined (String) , "SnsTopicName" :: NullOrUndefined (String) , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean) , "IsMultiRegionTrail" :: NullOrUndefined (Boolean) , "EnableLogFileValidation" :: NullOrUndefined (Boolean) , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String) , "CloudWatchLogsRoleArn" :: NullOrUndefined (String) , "KmsKeyId" :: NullOrUndefined (String) } -> {"Name" :: (String) , "S3BucketName" :: (String) , "S3KeyPrefix" :: NullOrUndefined (String) , "SnsTopicName" :: NullOrUndefined (String) , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean) , "IsMultiRegionTrail" :: NullOrUndefined (Boolean) , "EnableLogFileValidation" :: NullOrUndefined (Boolean) , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String) , "CloudWatchLogsRoleArn" :: NullOrUndefined (String) , "KmsKeyId" :: NullOrUndefined (String) } ) -> CreateTrailRequest
-newCreateTrailRequest' _Name _S3BucketName customize = (CreateTrailRequest <<< customize) { "Name": _Name, "S3BucketName": _S3BucketName, "CloudWatchLogsLogGroupArn": (NullOrUndefined Nothing), "CloudWatchLogsRoleArn": (NullOrUndefined Nothing), "EnableLogFileValidation": (NullOrUndefined Nothing), "IncludeGlobalServiceEvents": (NullOrUndefined Nothing), "IsMultiRegionTrail": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "S3KeyPrefix": (NullOrUndefined Nothing), "SnsTopicName": (NullOrUndefined Nothing) }
+newCreateTrailRequest' :: String -> String -> ( { "Name" :: (String) , "S3BucketName" :: (String) , "S3KeyPrefix" :: Maybe (String) , "SnsTopicName" :: Maybe (String) , "IncludeGlobalServiceEvents" :: Maybe (Boolean) , "IsMultiRegionTrail" :: Maybe (Boolean) , "EnableLogFileValidation" :: Maybe (Boolean) , "CloudWatchLogsLogGroupArn" :: Maybe (String) , "CloudWatchLogsRoleArn" :: Maybe (String) , "KmsKeyId" :: Maybe (String) } -> {"Name" :: (String) , "S3BucketName" :: (String) , "S3KeyPrefix" :: Maybe (String) , "SnsTopicName" :: Maybe (String) , "IncludeGlobalServiceEvents" :: Maybe (Boolean) , "IsMultiRegionTrail" :: Maybe (Boolean) , "EnableLogFileValidation" :: Maybe (Boolean) , "CloudWatchLogsLogGroupArn" :: Maybe (String) , "CloudWatchLogsRoleArn" :: Maybe (String) , "KmsKeyId" :: Maybe (String) } ) -> CreateTrailRequest
+newCreateTrailRequest' _Name _S3BucketName customize = (CreateTrailRequest <<< customize) { "Name": _Name, "S3BucketName": _S3BucketName, "CloudWatchLogsLogGroupArn": Nothing, "CloudWatchLogsRoleArn": Nothing, "EnableLogFileValidation": Nothing, "IncludeGlobalServiceEvents": Nothing, "IsMultiRegionTrail": Nothing, "KmsKeyId": Nothing, "S3KeyPrefix": Nothing, "SnsTopicName": Nothing }
 
 
 
 -- | <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
 newtype CreateTrailResponse = CreateTrailResponse 
-  { "Name" :: NullOrUndefined (String)
-  , "S3BucketName" :: NullOrUndefined (String)
-  , "S3KeyPrefix" :: NullOrUndefined (String)
-  , "SnsTopicName" :: NullOrUndefined (String)
-  , "SnsTopicARN" :: NullOrUndefined (String)
-  , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean)
-  , "IsMultiRegionTrail" :: NullOrUndefined (Boolean)
-  , "TrailARN" :: NullOrUndefined (String)
-  , "LogFileValidationEnabled" :: NullOrUndefined (Boolean)
-  , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String)
-  , "CloudWatchLogsRoleArn" :: NullOrUndefined (String)
-  , "KmsKeyId" :: NullOrUndefined (String)
+  { "Name" :: Maybe (String)
+  , "S3BucketName" :: Maybe (String)
+  , "S3KeyPrefix" :: Maybe (String)
+  , "SnsTopicName" :: Maybe (String)
+  , "SnsTopicARN" :: Maybe (String)
+  , "IncludeGlobalServiceEvents" :: Maybe (Boolean)
+  , "IsMultiRegionTrail" :: Maybe (Boolean)
+  , "TrailARN" :: Maybe (String)
+  , "LogFileValidationEnabled" :: Maybe (Boolean)
+  , "CloudWatchLogsLogGroupArn" :: Maybe (String)
+  , "CloudWatchLogsRoleArn" :: Maybe (String)
+  , "KmsKeyId" :: Maybe (String)
   }
 derive instance newtypeCreateTrailResponse :: Newtype CreateTrailResponse _
 derive instance repGenericCreateTrailResponse :: Generic CreateTrailResponse _
@@ -132,19 +131,19 @@ instance encodeCreateTrailResponse :: Encode CreateTrailResponse where encode = 
 
 -- | Constructs CreateTrailResponse from required parameters
 newCreateTrailResponse :: CreateTrailResponse
-newCreateTrailResponse  = CreateTrailResponse { "CloudWatchLogsLogGroupArn": (NullOrUndefined Nothing), "CloudWatchLogsRoleArn": (NullOrUndefined Nothing), "IncludeGlobalServiceEvents": (NullOrUndefined Nothing), "IsMultiRegionTrail": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "LogFileValidationEnabled": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "S3BucketName": (NullOrUndefined Nothing), "S3KeyPrefix": (NullOrUndefined Nothing), "SnsTopicARN": (NullOrUndefined Nothing), "SnsTopicName": (NullOrUndefined Nothing), "TrailARN": (NullOrUndefined Nothing) }
+newCreateTrailResponse  = CreateTrailResponse { "CloudWatchLogsLogGroupArn": Nothing, "CloudWatchLogsRoleArn": Nothing, "IncludeGlobalServiceEvents": Nothing, "IsMultiRegionTrail": Nothing, "KmsKeyId": Nothing, "LogFileValidationEnabled": Nothing, "Name": Nothing, "S3BucketName": Nothing, "S3KeyPrefix": Nothing, "SnsTopicARN": Nothing, "SnsTopicName": Nothing, "TrailARN": Nothing }
 
 -- | Constructs CreateTrailResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateTrailResponse' :: ( { "Name" :: NullOrUndefined (String) , "S3BucketName" :: NullOrUndefined (String) , "S3KeyPrefix" :: NullOrUndefined (String) , "SnsTopicName" :: NullOrUndefined (String) , "SnsTopicARN" :: NullOrUndefined (String) , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean) , "IsMultiRegionTrail" :: NullOrUndefined (Boolean) , "TrailARN" :: NullOrUndefined (String) , "LogFileValidationEnabled" :: NullOrUndefined (Boolean) , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String) , "CloudWatchLogsRoleArn" :: NullOrUndefined (String) , "KmsKeyId" :: NullOrUndefined (String) } -> {"Name" :: NullOrUndefined (String) , "S3BucketName" :: NullOrUndefined (String) , "S3KeyPrefix" :: NullOrUndefined (String) , "SnsTopicName" :: NullOrUndefined (String) , "SnsTopicARN" :: NullOrUndefined (String) , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean) , "IsMultiRegionTrail" :: NullOrUndefined (Boolean) , "TrailARN" :: NullOrUndefined (String) , "LogFileValidationEnabled" :: NullOrUndefined (Boolean) , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String) , "CloudWatchLogsRoleArn" :: NullOrUndefined (String) , "KmsKeyId" :: NullOrUndefined (String) } ) -> CreateTrailResponse
-newCreateTrailResponse'  customize = (CreateTrailResponse <<< customize) { "CloudWatchLogsLogGroupArn": (NullOrUndefined Nothing), "CloudWatchLogsRoleArn": (NullOrUndefined Nothing), "IncludeGlobalServiceEvents": (NullOrUndefined Nothing), "IsMultiRegionTrail": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "LogFileValidationEnabled": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "S3BucketName": (NullOrUndefined Nothing), "S3KeyPrefix": (NullOrUndefined Nothing), "SnsTopicARN": (NullOrUndefined Nothing), "SnsTopicName": (NullOrUndefined Nothing), "TrailARN": (NullOrUndefined Nothing) }
+newCreateTrailResponse' :: ( { "Name" :: Maybe (String) , "S3BucketName" :: Maybe (String) , "S3KeyPrefix" :: Maybe (String) , "SnsTopicName" :: Maybe (String) , "SnsTopicARN" :: Maybe (String) , "IncludeGlobalServiceEvents" :: Maybe (Boolean) , "IsMultiRegionTrail" :: Maybe (Boolean) , "TrailARN" :: Maybe (String) , "LogFileValidationEnabled" :: Maybe (Boolean) , "CloudWatchLogsLogGroupArn" :: Maybe (String) , "CloudWatchLogsRoleArn" :: Maybe (String) , "KmsKeyId" :: Maybe (String) } -> {"Name" :: Maybe (String) , "S3BucketName" :: Maybe (String) , "S3KeyPrefix" :: Maybe (String) , "SnsTopicName" :: Maybe (String) , "SnsTopicARN" :: Maybe (String) , "IncludeGlobalServiceEvents" :: Maybe (Boolean) , "IsMultiRegionTrail" :: Maybe (Boolean) , "TrailARN" :: Maybe (String) , "LogFileValidationEnabled" :: Maybe (Boolean) , "CloudWatchLogsLogGroupArn" :: Maybe (String) , "CloudWatchLogsRoleArn" :: Maybe (String) , "KmsKeyId" :: Maybe (String) } ) -> CreateTrailResponse
+newCreateTrailResponse'  customize = (CreateTrailResponse <<< customize) { "CloudWatchLogsLogGroupArn": Nothing, "CloudWatchLogsRoleArn": Nothing, "IncludeGlobalServiceEvents": Nothing, "IsMultiRegionTrail": Nothing, "KmsKeyId": Nothing, "LogFileValidationEnabled": Nothing, "Name": Nothing, "S3BucketName": Nothing, "S3KeyPrefix": Nothing, "SnsTopicARN": Nothing, "SnsTopicName": Nothing, "TrailARN": Nothing }
 
 
 
 -- | <p>The Amazon S3 objects that you specify in your event selectors for your trail to log data events. Data events are object-level API operations that access S3 objects, such as <code>GetObject</code>, <code>DeleteObject</code>, and <code>PutObject</code>. You can specify up to 250 S3 buckets and object prefixes for a trail. </p> <p>Example</p> <ol> <li> <p>You create an event selector for a trail and specify an S3 bucket and an empty prefix, such as <code>arn:aws:s3:::bucket-1/</code>.</p> </li> <li> <p>You upload an image file to <code>bucket-1</code>.</p> </li> <li> <p>The <code>PutObject</code> API operation occurs on an object in the S3 bucket that you specified in the event selector. The trail processes and logs the event.</p> </li> <li> <p>You upload another image file to a different S3 bucket named <code>arn:aws:s3:::bucket-2</code>.</p> </li> <li> <p>The event occurs on an object in an S3 bucket that you didn't specify in the event selector. The trail doesn’t log the event.</p> </li> </ol>
 newtype DataResource = DataResource 
-  { "Type" :: NullOrUndefined (String)
-  , "Values" :: NullOrUndefined (DataResourceValues)
+  { "Type" :: Maybe (String)
+  , "Values" :: Maybe (DataResourceValues)
   }
 derive instance newtypeDataResource :: Newtype DataResource _
 derive instance repGenericDataResource :: Generic DataResource _
@@ -154,12 +153,12 @@ instance encodeDataResource :: Encode DataResource where encode = genericEncode 
 
 -- | Constructs DataResource from required parameters
 newDataResource :: DataResource
-newDataResource  = DataResource { "Type": (NullOrUndefined Nothing), "Values": (NullOrUndefined Nothing) }
+newDataResource  = DataResource { "Type": Nothing, "Values": Nothing }
 
 -- | Constructs DataResource's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDataResource' :: ( { "Type" :: NullOrUndefined (String) , "Values" :: NullOrUndefined (DataResourceValues) } -> {"Type" :: NullOrUndefined (String) , "Values" :: NullOrUndefined (DataResourceValues) } ) -> DataResource
-newDataResource'  customize = (DataResource <<< customize) { "Type": (NullOrUndefined Nothing), "Values": (NullOrUndefined Nothing) }
+newDataResource' :: ( { "Type" :: Maybe (String) , "Values" :: Maybe (DataResourceValues) } -> {"Type" :: Maybe (String) , "Values" :: Maybe (DataResourceValues) } ) -> DataResource
+newDataResource'  customize = (DataResource <<< customize) { "Type": Nothing, "Values": Nothing }
 
 
 
@@ -223,8 +222,8 @@ instance encodeDeleteTrailResponse :: Encode DeleteTrailResponse where encode = 
 
 -- | <p>Returns information about the trail.</p>
 newtype DescribeTrailsRequest = DescribeTrailsRequest 
-  { "trailNameList" :: NullOrUndefined (TrailNameList)
-  , "includeShadowTrails" :: NullOrUndefined (Boolean)
+  { "trailNameList" :: Maybe (TrailNameList)
+  , "includeShadowTrails" :: Maybe (Boolean)
   }
 derive instance newtypeDescribeTrailsRequest :: Newtype DescribeTrailsRequest _
 derive instance repGenericDescribeTrailsRequest :: Generic DescribeTrailsRequest _
@@ -234,18 +233,18 @@ instance encodeDescribeTrailsRequest :: Encode DescribeTrailsRequest where encod
 
 -- | Constructs DescribeTrailsRequest from required parameters
 newDescribeTrailsRequest :: DescribeTrailsRequest
-newDescribeTrailsRequest  = DescribeTrailsRequest { "includeShadowTrails": (NullOrUndefined Nothing), "trailNameList": (NullOrUndefined Nothing) }
+newDescribeTrailsRequest  = DescribeTrailsRequest { "includeShadowTrails": Nothing, "trailNameList": Nothing }
 
 -- | Constructs DescribeTrailsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTrailsRequest' :: ( { "trailNameList" :: NullOrUndefined (TrailNameList) , "includeShadowTrails" :: NullOrUndefined (Boolean) } -> {"trailNameList" :: NullOrUndefined (TrailNameList) , "includeShadowTrails" :: NullOrUndefined (Boolean) } ) -> DescribeTrailsRequest
-newDescribeTrailsRequest'  customize = (DescribeTrailsRequest <<< customize) { "includeShadowTrails": (NullOrUndefined Nothing), "trailNameList": (NullOrUndefined Nothing) }
+newDescribeTrailsRequest' :: ( { "trailNameList" :: Maybe (TrailNameList) , "includeShadowTrails" :: Maybe (Boolean) } -> {"trailNameList" :: Maybe (TrailNameList) , "includeShadowTrails" :: Maybe (Boolean) } ) -> DescribeTrailsRequest
+newDescribeTrailsRequest'  customize = (DescribeTrailsRequest <<< customize) { "includeShadowTrails": Nothing, "trailNameList": Nothing }
 
 
 
 -- | <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
 newtype DescribeTrailsResponse = DescribeTrailsResponse 
-  { "trailList" :: NullOrUndefined (TrailList)
+  { "trailList" :: Maybe (TrailList)
   }
 derive instance newtypeDescribeTrailsResponse :: Newtype DescribeTrailsResponse _
 derive instance repGenericDescribeTrailsResponse :: Generic DescribeTrailsResponse _
@@ -255,24 +254,24 @@ instance encodeDescribeTrailsResponse :: Encode DescribeTrailsResponse where enc
 
 -- | Constructs DescribeTrailsResponse from required parameters
 newDescribeTrailsResponse :: DescribeTrailsResponse
-newDescribeTrailsResponse  = DescribeTrailsResponse { "trailList": (NullOrUndefined Nothing) }
+newDescribeTrailsResponse  = DescribeTrailsResponse { "trailList": Nothing }
 
 -- | Constructs DescribeTrailsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTrailsResponse' :: ( { "trailList" :: NullOrUndefined (TrailList) } -> {"trailList" :: NullOrUndefined (TrailList) } ) -> DescribeTrailsResponse
-newDescribeTrailsResponse'  customize = (DescribeTrailsResponse <<< customize) { "trailList": (NullOrUndefined Nothing) }
+newDescribeTrailsResponse' :: ( { "trailList" :: Maybe (TrailList) } -> {"trailList" :: Maybe (TrailList) } ) -> DescribeTrailsResponse
+newDescribeTrailsResponse'  customize = (DescribeTrailsResponse <<< customize) { "trailList": Nothing }
 
 
 
 -- | <p>Contains information about an event that was returned by a lookup request. The result includes a representation of a CloudTrail event.</p>
 newtype Event = Event 
-  { "EventId" :: NullOrUndefined (String)
-  , "EventName" :: NullOrUndefined (String)
-  , "EventTime" :: NullOrUndefined (Date)
-  , "EventSource" :: NullOrUndefined (String)
-  , "Username" :: NullOrUndefined (String)
-  , "Resources" :: NullOrUndefined (ResourceList)
-  , "CloudTrailEvent" :: NullOrUndefined (String)
+  { "EventId" :: Maybe (String)
+  , "EventName" :: Maybe (String)
+  , "EventTime" :: Maybe (Date)
+  , "EventSource" :: Maybe (String)
+  , "Username" :: Maybe (String)
+  , "Resources" :: Maybe (ResourceList)
+  , "CloudTrailEvent" :: Maybe (String)
   }
 derive instance newtypeEvent :: Newtype Event _
 derive instance repGenericEvent :: Generic Event _
@@ -282,20 +281,20 @@ instance encodeEvent :: Encode Event where encode = genericEncode options
 
 -- | Constructs Event from required parameters
 newEvent :: Event
-newEvent  = Event { "CloudTrailEvent": (NullOrUndefined Nothing), "EventId": (NullOrUndefined Nothing), "EventName": (NullOrUndefined Nothing), "EventSource": (NullOrUndefined Nothing), "EventTime": (NullOrUndefined Nothing), "Resources": (NullOrUndefined Nothing), "Username": (NullOrUndefined Nothing) }
+newEvent  = Event { "CloudTrailEvent": Nothing, "EventId": Nothing, "EventName": Nothing, "EventSource": Nothing, "EventTime": Nothing, "Resources": Nothing, "Username": Nothing }
 
 -- | Constructs Event's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEvent' :: ( { "EventId" :: NullOrUndefined (String) , "EventName" :: NullOrUndefined (String) , "EventTime" :: NullOrUndefined (Date) , "EventSource" :: NullOrUndefined (String) , "Username" :: NullOrUndefined (String) , "Resources" :: NullOrUndefined (ResourceList) , "CloudTrailEvent" :: NullOrUndefined (String) } -> {"EventId" :: NullOrUndefined (String) , "EventName" :: NullOrUndefined (String) , "EventTime" :: NullOrUndefined (Date) , "EventSource" :: NullOrUndefined (String) , "Username" :: NullOrUndefined (String) , "Resources" :: NullOrUndefined (ResourceList) , "CloudTrailEvent" :: NullOrUndefined (String) } ) -> Event
-newEvent'  customize = (Event <<< customize) { "CloudTrailEvent": (NullOrUndefined Nothing), "EventId": (NullOrUndefined Nothing), "EventName": (NullOrUndefined Nothing), "EventSource": (NullOrUndefined Nothing), "EventTime": (NullOrUndefined Nothing), "Resources": (NullOrUndefined Nothing), "Username": (NullOrUndefined Nothing) }
+newEvent' :: ( { "EventId" :: Maybe (String) , "EventName" :: Maybe (String) , "EventTime" :: Maybe (Date) , "EventSource" :: Maybe (String) , "Username" :: Maybe (String) , "Resources" :: Maybe (ResourceList) , "CloudTrailEvent" :: Maybe (String) } -> {"EventId" :: Maybe (String) , "EventName" :: Maybe (String) , "EventTime" :: Maybe (Date) , "EventSource" :: Maybe (String) , "Username" :: Maybe (String) , "Resources" :: Maybe (ResourceList) , "CloudTrailEvent" :: Maybe (String) } ) -> Event
+newEvent'  customize = (Event <<< customize) { "CloudTrailEvent": Nothing, "EventId": Nothing, "EventName": Nothing, "EventSource": Nothing, "EventTime": Nothing, "Resources": Nothing, "Username": Nothing }
 
 
 
 -- | <p>Use event selectors to specify whether you want your trail to log management and/or data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.</p> <p>You can configure up to five event selectors for a trail.</p>
 newtype EventSelector = EventSelector 
-  { "ReadWriteType" :: NullOrUndefined (ReadWriteType)
-  , "IncludeManagementEvents" :: NullOrUndefined (Boolean)
-  , "DataResources" :: NullOrUndefined (DataResources)
+  { "ReadWriteType" :: Maybe (ReadWriteType)
+  , "IncludeManagementEvents" :: Maybe (Boolean)
+  , "DataResources" :: Maybe (DataResources)
   }
 derive instance newtypeEventSelector :: Newtype EventSelector _
 derive instance repGenericEventSelector :: Generic EventSelector _
@@ -305,12 +304,12 @@ instance encodeEventSelector :: Encode EventSelector where encode = genericEncod
 
 -- | Constructs EventSelector from required parameters
 newEventSelector :: EventSelector
-newEventSelector  = EventSelector { "DataResources": (NullOrUndefined Nothing), "IncludeManagementEvents": (NullOrUndefined Nothing), "ReadWriteType": (NullOrUndefined Nothing) }
+newEventSelector  = EventSelector { "DataResources": Nothing, "IncludeManagementEvents": Nothing, "ReadWriteType": Nothing }
 
 -- | Constructs EventSelector's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEventSelector' :: ( { "ReadWriteType" :: NullOrUndefined (ReadWriteType) , "IncludeManagementEvents" :: NullOrUndefined (Boolean) , "DataResources" :: NullOrUndefined (DataResources) } -> {"ReadWriteType" :: NullOrUndefined (ReadWriteType) , "IncludeManagementEvents" :: NullOrUndefined (Boolean) , "DataResources" :: NullOrUndefined (DataResources) } ) -> EventSelector
-newEventSelector'  customize = (EventSelector <<< customize) { "DataResources": (NullOrUndefined Nothing), "IncludeManagementEvents": (NullOrUndefined Nothing), "ReadWriteType": (NullOrUndefined Nothing) }
+newEventSelector' :: ( { "ReadWriteType" :: Maybe (ReadWriteType) , "IncludeManagementEvents" :: Maybe (Boolean) , "DataResources" :: Maybe (DataResources) } -> {"ReadWriteType" :: Maybe (ReadWriteType) , "IncludeManagementEvents" :: Maybe (Boolean) , "DataResources" :: Maybe (DataResources) } ) -> EventSelector
+newEventSelector'  customize = (EventSelector <<< customize) { "DataResources": Nothing, "IncludeManagementEvents": Nothing, "ReadWriteType": Nothing }
 
 
 
@@ -353,8 +352,8 @@ newGetEventSelectorsRequest' _TrailName customize = (GetEventSelectorsRequest <<
 
 
 newtype GetEventSelectorsResponse = GetEventSelectorsResponse 
-  { "TrailARN" :: NullOrUndefined (String)
-  , "EventSelectors" :: NullOrUndefined (EventSelectors)
+  { "TrailARN" :: Maybe (String)
+  , "EventSelectors" :: Maybe (EventSelectors)
   }
 derive instance newtypeGetEventSelectorsResponse :: Newtype GetEventSelectorsResponse _
 derive instance repGenericGetEventSelectorsResponse :: Generic GetEventSelectorsResponse _
@@ -364,12 +363,12 @@ instance encodeGetEventSelectorsResponse :: Encode GetEventSelectorsResponse whe
 
 -- | Constructs GetEventSelectorsResponse from required parameters
 newGetEventSelectorsResponse :: GetEventSelectorsResponse
-newGetEventSelectorsResponse  = GetEventSelectorsResponse { "EventSelectors": (NullOrUndefined Nothing), "TrailARN": (NullOrUndefined Nothing) }
+newGetEventSelectorsResponse  = GetEventSelectorsResponse { "EventSelectors": Nothing, "TrailARN": Nothing }
 
 -- | Constructs GetEventSelectorsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetEventSelectorsResponse' :: ( { "TrailARN" :: NullOrUndefined (String) , "EventSelectors" :: NullOrUndefined (EventSelectors) } -> {"TrailARN" :: NullOrUndefined (String) , "EventSelectors" :: NullOrUndefined (EventSelectors) } ) -> GetEventSelectorsResponse
-newGetEventSelectorsResponse'  customize = (GetEventSelectorsResponse <<< customize) { "EventSelectors": (NullOrUndefined Nothing), "TrailARN": (NullOrUndefined Nothing) }
+newGetEventSelectorsResponse' :: ( { "TrailARN" :: Maybe (String) , "EventSelectors" :: Maybe (EventSelectors) } -> {"TrailARN" :: Maybe (String) , "EventSelectors" :: Maybe (EventSelectors) } ) -> GetEventSelectorsResponse
+newGetEventSelectorsResponse'  customize = (GetEventSelectorsResponse <<< customize) { "EventSelectors": Nothing, "TrailARN": Nothing }
 
 
 
@@ -396,23 +395,23 @@ newGetTrailStatusRequest' _Name customize = (GetTrailStatusRequest <<< customize
 
 -- | <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
 newtype GetTrailStatusResponse = GetTrailStatusResponse 
-  { "IsLogging" :: NullOrUndefined (Boolean)
-  , "LatestDeliveryError" :: NullOrUndefined (String)
-  , "LatestNotificationError" :: NullOrUndefined (String)
-  , "LatestDeliveryTime" :: NullOrUndefined (Date)
-  , "LatestNotificationTime" :: NullOrUndefined (Date)
-  , "StartLoggingTime" :: NullOrUndefined (Date)
-  , "StopLoggingTime" :: NullOrUndefined (Date)
-  , "LatestCloudWatchLogsDeliveryError" :: NullOrUndefined (String)
-  , "LatestCloudWatchLogsDeliveryTime" :: NullOrUndefined (Date)
-  , "LatestDigestDeliveryTime" :: NullOrUndefined (Date)
-  , "LatestDigestDeliveryError" :: NullOrUndefined (String)
-  , "LatestDeliveryAttemptTime" :: NullOrUndefined (String)
-  , "LatestNotificationAttemptTime" :: NullOrUndefined (String)
-  , "LatestNotificationAttemptSucceeded" :: NullOrUndefined (String)
-  , "LatestDeliveryAttemptSucceeded" :: NullOrUndefined (String)
-  , "TimeLoggingStarted" :: NullOrUndefined (String)
-  , "TimeLoggingStopped" :: NullOrUndefined (String)
+  { "IsLogging" :: Maybe (Boolean)
+  , "LatestDeliveryError" :: Maybe (String)
+  , "LatestNotificationError" :: Maybe (String)
+  , "LatestDeliveryTime" :: Maybe (Date)
+  , "LatestNotificationTime" :: Maybe (Date)
+  , "StartLoggingTime" :: Maybe (Date)
+  , "StopLoggingTime" :: Maybe (Date)
+  , "LatestCloudWatchLogsDeliveryError" :: Maybe (String)
+  , "LatestCloudWatchLogsDeliveryTime" :: Maybe (Date)
+  , "LatestDigestDeliveryTime" :: Maybe (Date)
+  , "LatestDigestDeliveryError" :: Maybe (String)
+  , "LatestDeliveryAttemptTime" :: Maybe (String)
+  , "LatestNotificationAttemptTime" :: Maybe (String)
+  , "LatestNotificationAttemptSucceeded" :: Maybe (String)
+  , "LatestDeliveryAttemptSucceeded" :: Maybe (String)
+  , "TimeLoggingStarted" :: Maybe (String)
+  , "TimeLoggingStopped" :: Maybe (String)
   }
 derive instance newtypeGetTrailStatusResponse :: Newtype GetTrailStatusResponse _
 derive instance repGenericGetTrailStatusResponse :: Generic GetTrailStatusResponse _
@@ -422,12 +421,12 @@ instance encodeGetTrailStatusResponse :: Encode GetTrailStatusResponse where enc
 
 -- | Constructs GetTrailStatusResponse from required parameters
 newGetTrailStatusResponse :: GetTrailStatusResponse
-newGetTrailStatusResponse  = GetTrailStatusResponse { "IsLogging": (NullOrUndefined Nothing), "LatestCloudWatchLogsDeliveryError": (NullOrUndefined Nothing), "LatestCloudWatchLogsDeliveryTime": (NullOrUndefined Nothing), "LatestDeliveryAttemptSucceeded": (NullOrUndefined Nothing), "LatestDeliveryAttemptTime": (NullOrUndefined Nothing), "LatestDeliveryError": (NullOrUndefined Nothing), "LatestDeliveryTime": (NullOrUndefined Nothing), "LatestDigestDeliveryError": (NullOrUndefined Nothing), "LatestDigestDeliveryTime": (NullOrUndefined Nothing), "LatestNotificationAttemptSucceeded": (NullOrUndefined Nothing), "LatestNotificationAttemptTime": (NullOrUndefined Nothing), "LatestNotificationError": (NullOrUndefined Nothing), "LatestNotificationTime": (NullOrUndefined Nothing), "StartLoggingTime": (NullOrUndefined Nothing), "StopLoggingTime": (NullOrUndefined Nothing), "TimeLoggingStarted": (NullOrUndefined Nothing), "TimeLoggingStopped": (NullOrUndefined Nothing) }
+newGetTrailStatusResponse  = GetTrailStatusResponse { "IsLogging": Nothing, "LatestCloudWatchLogsDeliveryError": Nothing, "LatestCloudWatchLogsDeliveryTime": Nothing, "LatestDeliveryAttemptSucceeded": Nothing, "LatestDeliveryAttemptTime": Nothing, "LatestDeliveryError": Nothing, "LatestDeliveryTime": Nothing, "LatestDigestDeliveryError": Nothing, "LatestDigestDeliveryTime": Nothing, "LatestNotificationAttemptSucceeded": Nothing, "LatestNotificationAttemptTime": Nothing, "LatestNotificationError": Nothing, "LatestNotificationTime": Nothing, "StartLoggingTime": Nothing, "StopLoggingTime": Nothing, "TimeLoggingStarted": Nothing, "TimeLoggingStopped": Nothing }
 
 -- | Constructs GetTrailStatusResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTrailStatusResponse' :: ( { "IsLogging" :: NullOrUndefined (Boolean) , "LatestDeliveryError" :: NullOrUndefined (String) , "LatestNotificationError" :: NullOrUndefined (String) , "LatestDeliveryTime" :: NullOrUndefined (Date) , "LatestNotificationTime" :: NullOrUndefined (Date) , "StartLoggingTime" :: NullOrUndefined (Date) , "StopLoggingTime" :: NullOrUndefined (Date) , "LatestCloudWatchLogsDeliveryError" :: NullOrUndefined (String) , "LatestCloudWatchLogsDeliveryTime" :: NullOrUndefined (Date) , "LatestDigestDeliveryTime" :: NullOrUndefined (Date) , "LatestDigestDeliveryError" :: NullOrUndefined (String) , "LatestDeliveryAttemptTime" :: NullOrUndefined (String) , "LatestNotificationAttemptTime" :: NullOrUndefined (String) , "LatestNotificationAttemptSucceeded" :: NullOrUndefined (String) , "LatestDeliveryAttemptSucceeded" :: NullOrUndefined (String) , "TimeLoggingStarted" :: NullOrUndefined (String) , "TimeLoggingStopped" :: NullOrUndefined (String) } -> {"IsLogging" :: NullOrUndefined (Boolean) , "LatestDeliveryError" :: NullOrUndefined (String) , "LatestNotificationError" :: NullOrUndefined (String) , "LatestDeliveryTime" :: NullOrUndefined (Date) , "LatestNotificationTime" :: NullOrUndefined (Date) , "StartLoggingTime" :: NullOrUndefined (Date) , "StopLoggingTime" :: NullOrUndefined (Date) , "LatestCloudWatchLogsDeliveryError" :: NullOrUndefined (String) , "LatestCloudWatchLogsDeliveryTime" :: NullOrUndefined (Date) , "LatestDigestDeliveryTime" :: NullOrUndefined (Date) , "LatestDigestDeliveryError" :: NullOrUndefined (String) , "LatestDeliveryAttemptTime" :: NullOrUndefined (String) , "LatestNotificationAttemptTime" :: NullOrUndefined (String) , "LatestNotificationAttemptSucceeded" :: NullOrUndefined (String) , "LatestDeliveryAttemptSucceeded" :: NullOrUndefined (String) , "TimeLoggingStarted" :: NullOrUndefined (String) , "TimeLoggingStopped" :: NullOrUndefined (String) } ) -> GetTrailStatusResponse
-newGetTrailStatusResponse'  customize = (GetTrailStatusResponse <<< customize) { "IsLogging": (NullOrUndefined Nothing), "LatestCloudWatchLogsDeliveryError": (NullOrUndefined Nothing), "LatestCloudWatchLogsDeliveryTime": (NullOrUndefined Nothing), "LatestDeliveryAttemptSucceeded": (NullOrUndefined Nothing), "LatestDeliveryAttemptTime": (NullOrUndefined Nothing), "LatestDeliveryError": (NullOrUndefined Nothing), "LatestDeliveryTime": (NullOrUndefined Nothing), "LatestDigestDeliveryError": (NullOrUndefined Nothing), "LatestDigestDeliveryTime": (NullOrUndefined Nothing), "LatestNotificationAttemptSucceeded": (NullOrUndefined Nothing), "LatestNotificationAttemptTime": (NullOrUndefined Nothing), "LatestNotificationError": (NullOrUndefined Nothing), "LatestNotificationTime": (NullOrUndefined Nothing), "StartLoggingTime": (NullOrUndefined Nothing), "StopLoggingTime": (NullOrUndefined Nothing), "TimeLoggingStarted": (NullOrUndefined Nothing), "TimeLoggingStopped": (NullOrUndefined Nothing) }
+newGetTrailStatusResponse' :: ( { "IsLogging" :: Maybe (Boolean) , "LatestDeliveryError" :: Maybe (String) , "LatestNotificationError" :: Maybe (String) , "LatestDeliveryTime" :: Maybe (Date) , "LatestNotificationTime" :: Maybe (Date) , "StartLoggingTime" :: Maybe (Date) , "StopLoggingTime" :: Maybe (Date) , "LatestCloudWatchLogsDeliveryError" :: Maybe (String) , "LatestCloudWatchLogsDeliveryTime" :: Maybe (Date) , "LatestDigestDeliveryTime" :: Maybe (Date) , "LatestDigestDeliveryError" :: Maybe (String) , "LatestDeliveryAttemptTime" :: Maybe (String) , "LatestNotificationAttemptTime" :: Maybe (String) , "LatestNotificationAttemptSucceeded" :: Maybe (String) , "LatestDeliveryAttemptSucceeded" :: Maybe (String) , "TimeLoggingStarted" :: Maybe (String) , "TimeLoggingStopped" :: Maybe (String) } -> {"IsLogging" :: Maybe (Boolean) , "LatestDeliveryError" :: Maybe (String) , "LatestNotificationError" :: Maybe (String) , "LatestDeliveryTime" :: Maybe (Date) , "LatestNotificationTime" :: Maybe (Date) , "StartLoggingTime" :: Maybe (Date) , "StopLoggingTime" :: Maybe (Date) , "LatestCloudWatchLogsDeliveryError" :: Maybe (String) , "LatestCloudWatchLogsDeliveryTime" :: Maybe (Date) , "LatestDigestDeliveryTime" :: Maybe (Date) , "LatestDigestDeliveryError" :: Maybe (String) , "LatestDeliveryAttemptTime" :: Maybe (String) , "LatestNotificationAttemptTime" :: Maybe (String) , "LatestNotificationAttemptSucceeded" :: Maybe (String) , "LatestDeliveryAttemptSucceeded" :: Maybe (String) , "TimeLoggingStarted" :: Maybe (String) , "TimeLoggingStopped" :: Maybe (String) } ) -> GetTrailStatusResponse
+newGetTrailStatusResponse'  customize = (GetTrailStatusResponse <<< customize) { "IsLogging": Nothing, "LatestCloudWatchLogsDeliveryError": Nothing, "LatestCloudWatchLogsDeliveryTime": Nothing, "LatestDeliveryAttemptSucceeded": Nothing, "LatestDeliveryAttemptTime": Nothing, "LatestDeliveryError": Nothing, "LatestDeliveryTime": Nothing, "LatestDigestDeliveryError": Nothing, "LatestDigestDeliveryTime": Nothing, "LatestNotificationAttemptSucceeded": Nothing, "LatestNotificationAttemptTime": Nothing, "LatestNotificationError": Nothing, "LatestNotificationTime": Nothing, "StartLoggingTime": Nothing, "StopLoggingTime": Nothing, "TimeLoggingStarted": Nothing, "TimeLoggingStopped": Nothing }
 
 
 
@@ -653,9 +652,9 @@ instance encodeKmsKeyNotFoundException :: Encode KmsKeyNotFoundException where e
 
 -- | <p>Requests the public keys for a specified time range.</p>
 newtype ListPublicKeysRequest = ListPublicKeysRequest 
-  { "StartTime" :: NullOrUndefined (Date)
-  , "EndTime" :: NullOrUndefined (Date)
-  , "NextToken" :: NullOrUndefined (String)
+  { "StartTime" :: Maybe (Date)
+  , "EndTime" :: Maybe (Date)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeListPublicKeysRequest :: Newtype ListPublicKeysRequest _
 derive instance repGenericListPublicKeysRequest :: Generic ListPublicKeysRequest _
@@ -665,19 +664,19 @@ instance encodeListPublicKeysRequest :: Encode ListPublicKeysRequest where encod
 
 -- | Constructs ListPublicKeysRequest from required parameters
 newListPublicKeysRequest :: ListPublicKeysRequest
-newListPublicKeysRequest  = ListPublicKeysRequest { "EndTime": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newListPublicKeysRequest  = ListPublicKeysRequest { "EndTime": Nothing, "NextToken": Nothing, "StartTime": Nothing }
 
 -- | Constructs ListPublicKeysRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListPublicKeysRequest' :: ( { "StartTime" :: NullOrUndefined (Date) , "EndTime" :: NullOrUndefined (Date) , "NextToken" :: NullOrUndefined (String) } -> {"StartTime" :: NullOrUndefined (Date) , "EndTime" :: NullOrUndefined (Date) , "NextToken" :: NullOrUndefined (String) } ) -> ListPublicKeysRequest
-newListPublicKeysRequest'  customize = (ListPublicKeysRequest <<< customize) { "EndTime": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newListPublicKeysRequest' :: ( { "StartTime" :: Maybe (Date) , "EndTime" :: Maybe (Date) , "NextToken" :: Maybe (String) } -> {"StartTime" :: Maybe (Date) , "EndTime" :: Maybe (Date) , "NextToken" :: Maybe (String) } ) -> ListPublicKeysRequest
+newListPublicKeysRequest'  customize = (ListPublicKeysRequest <<< customize) { "EndTime": Nothing, "NextToken": Nothing, "StartTime": Nothing }
 
 
 
 -- | <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
 newtype ListPublicKeysResponse = ListPublicKeysResponse 
-  { "PublicKeyList" :: NullOrUndefined (PublicKeyList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "PublicKeyList" :: Maybe (PublicKeyList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeListPublicKeysResponse :: Newtype ListPublicKeysResponse _
 derive instance repGenericListPublicKeysResponse :: Generic ListPublicKeysResponse _
@@ -687,19 +686,19 @@ instance encodeListPublicKeysResponse :: Encode ListPublicKeysResponse where enc
 
 -- | Constructs ListPublicKeysResponse from required parameters
 newListPublicKeysResponse :: ListPublicKeysResponse
-newListPublicKeysResponse  = ListPublicKeysResponse { "NextToken": (NullOrUndefined Nothing), "PublicKeyList": (NullOrUndefined Nothing) }
+newListPublicKeysResponse  = ListPublicKeysResponse { "NextToken": Nothing, "PublicKeyList": Nothing }
 
 -- | Constructs ListPublicKeysResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListPublicKeysResponse' :: ( { "PublicKeyList" :: NullOrUndefined (PublicKeyList) , "NextToken" :: NullOrUndefined (String) } -> {"PublicKeyList" :: NullOrUndefined (PublicKeyList) , "NextToken" :: NullOrUndefined (String) } ) -> ListPublicKeysResponse
-newListPublicKeysResponse'  customize = (ListPublicKeysResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "PublicKeyList": (NullOrUndefined Nothing) }
+newListPublicKeysResponse' :: ( { "PublicKeyList" :: Maybe (PublicKeyList) , "NextToken" :: Maybe (String) } -> {"PublicKeyList" :: Maybe (PublicKeyList) , "NextToken" :: Maybe (String) } ) -> ListPublicKeysResponse
+newListPublicKeysResponse'  customize = (ListPublicKeysResponse <<< customize) { "NextToken": Nothing, "PublicKeyList": Nothing }
 
 
 
 -- | <p>Specifies a list of trail tags to return.</p>
 newtype ListTagsRequest = ListTagsRequest 
   { "ResourceIdList" :: (ResourceIdList)
-  , "NextToken" :: NullOrUndefined (String)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeListTagsRequest :: Newtype ListTagsRequest _
 derive instance repGenericListTagsRequest :: Generic ListTagsRequest _
@@ -709,19 +708,19 @@ instance encodeListTagsRequest :: Encode ListTagsRequest where encode = genericE
 
 -- | Constructs ListTagsRequest from required parameters
 newListTagsRequest :: ResourceIdList -> ListTagsRequest
-newListTagsRequest _ResourceIdList = ListTagsRequest { "ResourceIdList": _ResourceIdList, "NextToken": (NullOrUndefined Nothing) }
+newListTagsRequest _ResourceIdList = ListTagsRequest { "ResourceIdList": _ResourceIdList, "NextToken": Nothing }
 
 -- | Constructs ListTagsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTagsRequest' :: ResourceIdList -> ( { "ResourceIdList" :: (ResourceIdList) , "NextToken" :: NullOrUndefined (String) } -> {"ResourceIdList" :: (ResourceIdList) , "NextToken" :: NullOrUndefined (String) } ) -> ListTagsRequest
-newListTagsRequest' _ResourceIdList customize = (ListTagsRequest <<< customize) { "ResourceIdList": _ResourceIdList, "NextToken": (NullOrUndefined Nothing) }
+newListTagsRequest' :: ResourceIdList -> ( { "ResourceIdList" :: (ResourceIdList) , "NextToken" :: Maybe (String) } -> {"ResourceIdList" :: (ResourceIdList) , "NextToken" :: Maybe (String) } ) -> ListTagsRequest
+newListTagsRequest' _ResourceIdList customize = (ListTagsRequest <<< customize) { "ResourceIdList": _ResourceIdList, "NextToken": Nothing }
 
 
 
 -- | <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
 newtype ListTagsResponse = ListTagsResponse 
-  { "ResourceTagList" :: NullOrUndefined (ResourceTagList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "ResourceTagList" :: Maybe (ResourceTagList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeListTagsResponse :: Newtype ListTagsResponse _
 derive instance repGenericListTagsResponse :: Generic ListTagsResponse _
@@ -731,12 +730,12 @@ instance encodeListTagsResponse :: Encode ListTagsResponse where encode = generi
 
 -- | Constructs ListTagsResponse from required parameters
 newListTagsResponse :: ListTagsResponse
-newListTagsResponse  = ListTagsResponse { "NextToken": (NullOrUndefined Nothing), "ResourceTagList": (NullOrUndefined Nothing) }
+newListTagsResponse  = ListTagsResponse { "NextToken": Nothing, "ResourceTagList": Nothing }
 
 -- | Constructs ListTagsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTagsResponse' :: ( { "ResourceTagList" :: NullOrUndefined (ResourceTagList) , "NextToken" :: NullOrUndefined (String) } -> {"ResourceTagList" :: NullOrUndefined (ResourceTagList) , "NextToken" :: NullOrUndefined (String) } ) -> ListTagsResponse
-newListTagsResponse'  customize = (ListTagsResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "ResourceTagList": (NullOrUndefined Nothing) }
+newListTagsResponse' :: ( { "ResourceTagList" :: Maybe (ResourceTagList) , "NextToken" :: Maybe (String) } -> {"ResourceTagList" :: Maybe (ResourceTagList) , "NextToken" :: Maybe (String) } ) -> ListTagsResponse
+newListTagsResponse'  customize = (ListTagsResponse <<< customize) { "NextToken": Nothing, "ResourceTagList": Nothing }
 
 
 
@@ -782,11 +781,11 @@ instance encodeLookupAttributesList :: Encode LookupAttributesList where encode 
 
 -- | <p>Contains a request for LookupEvents.</p>
 newtype LookupEventsRequest = LookupEventsRequest 
-  { "LookupAttributes" :: NullOrUndefined (LookupAttributesList)
-  , "StartTime" :: NullOrUndefined (Date)
-  , "EndTime" :: NullOrUndefined (Date)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "LookupAttributes" :: Maybe (LookupAttributesList)
+  , "StartTime" :: Maybe (Date)
+  , "EndTime" :: Maybe (Date)
+  , "MaxResults" :: Maybe (MaxResults)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeLookupEventsRequest :: Newtype LookupEventsRequest _
 derive instance repGenericLookupEventsRequest :: Generic LookupEventsRequest _
@@ -796,19 +795,19 @@ instance encodeLookupEventsRequest :: Encode LookupEventsRequest where encode = 
 
 -- | Constructs LookupEventsRequest from required parameters
 newLookupEventsRequest :: LookupEventsRequest
-newLookupEventsRequest  = LookupEventsRequest { "EndTime": (NullOrUndefined Nothing), "LookupAttributes": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newLookupEventsRequest  = LookupEventsRequest { "EndTime": Nothing, "LookupAttributes": Nothing, "MaxResults": Nothing, "NextToken": Nothing, "StartTime": Nothing }
 
 -- | Constructs LookupEventsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLookupEventsRequest' :: ( { "LookupAttributes" :: NullOrUndefined (LookupAttributesList) , "StartTime" :: NullOrUndefined (Date) , "EndTime" :: NullOrUndefined (Date) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (NextToken) } -> {"LookupAttributes" :: NullOrUndefined (LookupAttributesList) , "StartTime" :: NullOrUndefined (Date) , "EndTime" :: NullOrUndefined (Date) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (NextToken) } ) -> LookupEventsRequest
-newLookupEventsRequest'  customize = (LookupEventsRequest <<< customize) { "EndTime": (NullOrUndefined Nothing), "LookupAttributes": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newLookupEventsRequest' :: ( { "LookupAttributes" :: Maybe (LookupAttributesList) , "StartTime" :: Maybe (Date) , "EndTime" :: Maybe (Date) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (NextToken) } -> {"LookupAttributes" :: Maybe (LookupAttributesList) , "StartTime" :: Maybe (Date) , "EndTime" :: Maybe (Date) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (NextToken) } ) -> LookupEventsRequest
+newLookupEventsRequest'  customize = (LookupEventsRequest <<< customize) { "EndTime": Nothing, "LookupAttributes": Nothing, "MaxResults": Nothing, "NextToken": Nothing, "StartTime": Nothing }
 
 
 
 -- | <p>Contains a response to a LookupEvents action.</p>
 newtype LookupEventsResponse = LookupEventsResponse 
-  { "Events" :: NullOrUndefined (EventsList)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "Events" :: Maybe (EventsList)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeLookupEventsResponse :: Newtype LookupEventsResponse _
 derive instance repGenericLookupEventsResponse :: Generic LookupEventsResponse _
@@ -818,12 +817,12 @@ instance encodeLookupEventsResponse :: Encode LookupEventsResponse where encode 
 
 -- | Constructs LookupEventsResponse from required parameters
 newLookupEventsResponse :: LookupEventsResponse
-newLookupEventsResponse  = LookupEventsResponse { "Events": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newLookupEventsResponse  = LookupEventsResponse { "Events": Nothing, "NextToken": Nothing }
 
 -- | Constructs LookupEventsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLookupEventsResponse' :: ( { "Events" :: NullOrUndefined (EventsList) , "NextToken" :: NullOrUndefined (NextToken) } -> {"Events" :: NullOrUndefined (EventsList) , "NextToken" :: NullOrUndefined (NextToken) } ) -> LookupEventsResponse
-newLookupEventsResponse'  customize = (LookupEventsResponse <<< customize) { "Events": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newLookupEventsResponse' :: ( { "Events" :: Maybe (EventsList) , "NextToken" :: Maybe (NextToken) } -> {"Events" :: Maybe (EventsList) , "NextToken" :: Maybe (NextToken) } ) -> LookupEventsResponse
+newLookupEventsResponse'  customize = (LookupEventsResponse <<< customize) { "Events": Nothing, "NextToken": Nothing }
 
 
 
@@ -867,10 +866,10 @@ instance encodeOperationNotPermittedException :: Encode OperationNotPermittedExc
 
 -- | <p>Contains information about a returned public key.</p>
 newtype PublicKey = PublicKey 
-  { "Value" :: NullOrUndefined (ByteBuffer)
-  , "ValidityStartTime" :: NullOrUndefined (Date)
-  , "ValidityEndTime" :: NullOrUndefined (Date)
-  , "Fingerprint" :: NullOrUndefined (String)
+  { "Value" :: Maybe (ByteBuffer)
+  , "ValidityStartTime" :: Maybe (Date)
+  , "ValidityEndTime" :: Maybe (Date)
+  , "Fingerprint" :: Maybe (String)
   }
 derive instance newtypePublicKey :: Newtype PublicKey _
 derive instance repGenericPublicKey :: Generic PublicKey _
@@ -880,12 +879,12 @@ instance encodePublicKey :: Encode PublicKey where encode = genericEncode option
 
 -- | Constructs PublicKey from required parameters
 newPublicKey :: PublicKey
-newPublicKey  = PublicKey { "Fingerprint": (NullOrUndefined Nothing), "ValidityEndTime": (NullOrUndefined Nothing), "ValidityStartTime": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newPublicKey  = PublicKey { "Fingerprint": Nothing, "ValidityEndTime": Nothing, "ValidityStartTime": Nothing, "Value": Nothing }
 
 -- | Constructs PublicKey's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPublicKey' :: ( { "Value" :: NullOrUndefined (ByteBuffer) , "ValidityStartTime" :: NullOrUndefined (Date) , "ValidityEndTime" :: NullOrUndefined (Date) , "Fingerprint" :: NullOrUndefined (String) } -> {"Value" :: NullOrUndefined (ByteBuffer) , "ValidityStartTime" :: NullOrUndefined (Date) , "ValidityEndTime" :: NullOrUndefined (Date) , "Fingerprint" :: NullOrUndefined (String) } ) -> PublicKey
-newPublicKey'  customize = (PublicKey <<< customize) { "Fingerprint": (NullOrUndefined Nothing), "ValidityEndTime": (NullOrUndefined Nothing), "ValidityStartTime": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newPublicKey' :: ( { "Value" :: Maybe (ByteBuffer) , "ValidityStartTime" :: Maybe (Date) , "ValidityEndTime" :: Maybe (Date) , "Fingerprint" :: Maybe (String) } -> {"Value" :: Maybe (ByteBuffer) , "ValidityStartTime" :: Maybe (Date) , "ValidityEndTime" :: Maybe (Date) , "Fingerprint" :: Maybe (String) } ) -> PublicKey
+newPublicKey'  customize = (PublicKey <<< customize) { "Fingerprint": Nothing, "ValidityEndTime": Nothing, "ValidityStartTime": Nothing, "Value": Nothing }
 
 
 
@@ -920,8 +919,8 @@ newPutEventSelectorsRequest' _EventSelectors _TrailName customize = (PutEventSel
 
 
 newtype PutEventSelectorsResponse = PutEventSelectorsResponse 
-  { "TrailARN" :: NullOrUndefined (String)
-  , "EventSelectors" :: NullOrUndefined (EventSelectors)
+  { "TrailARN" :: Maybe (String)
+  , "EventSelectors" :: Maybe (EventSelectors)
   }
 derive instance newtypePutEventSelectorsResponse :: Newtype PutEventSelectorsResponse _
 derive instance repGenericPutEventSelectorsResponse :: Generic PutEventSelectorsResponse _
@@ -931,12 +930,12 @@ instance encodePutEventSelectorsResponse :: Encode PutEventSelectorsResponse whe
 
 -- | Constructs PutEventSelectorsResponse from required parameters
 newPutEventSelectorsResponse :: PutEventSelectorsResponse
-newPutEventSelectorsResponse  = PutEventSelectorsResponse { "EventSelectors": (NullOrUndefined Nothing), "TrailARN": (NullOrUndefined Nothing) }
+newPutEventSelectorsResponse  = PutEventSelectorsResponse { "EventSelectors": Nothing, "TrailARN": Nothing }
 
 -- | Constructs PutEventSelectorsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutEventSelectorsResponse' :: ( { "TrailARN" :: NullOrUndefined (String) , "EventSelectors" :: NullOrUndefined (EventSelectors) } -> {"TrailARN" :: NullOrUndefined (String) , "EventSelectors" :: NullOrUndefined (EventSelectors) } ) -> PutEventSelectorsResponse
-newPutEventSelectorsResponse'  customize = (PutEventSelectorsResponse <<< customize) { "EventSelectors": (NullOrUndefined Nothing), "TrailARN": (NullOrUndefined Nothing) }
+newPutEventSelectorsResponse' :: ( { "TrailARN" :: Maybe (String) , "EventSelectors" :: Maybe (EventSelectors) } -> {"TrailARN" :: Maybe (String) , "EventSelectors" :: Maybe (EventSelectors) } ) -> PutEventSelectorsResponse
+newPutEventSelectorsResponse'  customize = (PutEventSelectorsResponse <<< customize) { "EventSelectors": Nothing, "TrailARN": Nothing }
 
 
 
@@ -952,7 +951,7 @@ instance encodeReadWriteType :: Encode ReadWriteType where encode = genericEncod
 -- | <p>Specifies the tags to remove from a trail.</p>
 newtype RemoveTagsRequest = RemoveTagsRequest 
   { "ResourceId" :: (String)
-  , "TagsList" :: NullOrUndefined (TagsList)
+  , "TagsList" :: Maybe (TagsList)
   }
 derive instance newtypeRemoveTagsRequest :: Newtype RemoveTagsRequest _
 derive instance repGenericRemoveTagsRequest :: Generic RemoveTagsRequest _
@@ -962,12 +961,12 @@ instance encodeRemoveTagsRequest :: Encode RemoveTagsRequest where encode = gene
 
 -- | Constructs RemoveTagsRequest from required parameters
 newRemoveTagsRequest :: String -> RemoveTagsRequest
-newRemoveTagsRequest _ResourceId = RemoveTagsRequest { "ResourceId": _ResourceId, "TagsList": (NullOrUndefined Nothing) }
+newRemoveTagsRequest _ResourceId = RemoveTagsRequest { "ResourceId": _ResourceId, "TagsList": Nothing }
 
 -- | Constructs RemoveTagsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRemoveTagsRequest' :: String -> ( { "ResourceId" :: (String) , "TagsList" :: NullOrUndefined (TagsList) } -> {"ResourceId" :: (String) , "TagsList" :: NullOrUndefined (TagsList) } ) -> RemoveTagsRequest
-newRemoveTagsRequest' _ResourceId customize = (RemoveTagsRequest <<< customize) { "ResourceId": _ResourceId, "TagsList": (NullOrUndefined Nothing) }
+newRemoveTagsRequest' :: String -> ( { "ResourceId" :: (String) , "TagsList" :: Maybe (TagsList) } -> {"ResourceId" :: (String) , "TagsList" :: Maybe (TagsList) } ) -> RemoveTagsRequest
+newRemoveTagsRequest' _ResourceId customize = (RemoveTagsRequest <<< customize) { "ResourceId": _ResourceId, "TagsList": Nothing }
 
 
 
@@ -983,8 +982,8 @@ instance encodeRemoveTagsResponse :: Encode RemoveTagsResponse where encode = ge
 
 -- | <p>Specifies the type and name of a resource referenced by an event.</p>
 newtype Resource = Resource 
-  { "ResourceType" :: NullOrUndefined (String)
-  , "ResourceName" :: NullOrUndefined (String)
+  { "ResourceType" :: Maybe (String)
+  , "ResourceName" :: Maybe (String)
   }
 derive instance newtypeResource :: Newtype Resource _
 derive instance repGenericResource :: Generic Resource _
@@ -994,12 +993,12 @@ instance encodeResource :: Encode Resource where encode = genericEncode options
 
 -- | Constructs Resource from required parameters
 newResource :: Resource
-newResource  = Resource { "ResourceName": (NullOrUndefined Nothing), "ResourceType": (NullOrUndefined Nothing) }
+newResource  = Resource { "ResourceName": Nothing, "ResourceType": Nothing }
 
 -- | Constructs Resource's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResource' :: ( { "ResourceType" :: NullOrUndefined (String) , "ResourceName" :: NullOrUndefined (String) } -> {"ResourceType" :: NullOrUndefined (String) , "ResourceName" :: NullOrUndefined (String) } ) -> Resource
-newResource'  customize = (Resource <<< customize) { "ResourceName": (NullOrUndefined Nothing), "ResourceType": (NullOrUndefined Nothing) }
+newResource' :: ( { "ResourceType" :: Maybe (String) , "ResourceName" :: Maybe (String) } -> {"ResourceType" :: Maybe (String) , "ResourceName" :: Maybe (String) } ) -> Resource
+newResource'  customize = (Resource <<< customize) { "ResourceName": Nothing, "ResourceType": Nothing }
 
 
 
@@ -1034,8 +1033,8 @@ instance encodeResourceNotFoundException :: Encode ResourceNotFoundException whe
 
 -- | <p>A resource tag.</p>
 newtype ResourceTag = ResourceTag 
-  { "ResourceId" :: NullOrUndefined (String)
-  , "TagsList" :: NullOrUndefined (TagsList)
+  { "ResourceId" :: Maybe (String)
+  , "TagsList" :: Maybe (TagsList)
   }
 derive instance newtypeResourceTag :: Newtype ResourceTag _
 derive instance repGenericResourceTag :: Generic ResourceTag _
@@ -1045,12 +1044,12 @@ instance encodeResourceTag :: Encode ResourceTag where encode = genericEncode op
 
 -- | Constructs ResourceTag from required parameters
 newResourceTag :: ResourceTag
-newResourceTag  = ResourceTag { "ResourceId": (NullOrUndefined Nothing), "TagsList": (NullOrUndefined Nothing) }
+newResourceTag  = ResourceTag { "ResourceId": Nothing, "TagsList": Nothing }
 
 -- | Constructs ResourceTag's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceTag' :: ( { "ResourceId" :: NullOrUndefined (String) , "TagsList" :: NullOrUndefined (TagsList) } -> {"ResourceId" :: NullOrUndefined (String) , "TagsList" :: NullOrUndefined (TagsList) } ) -> ResourceTag
-newResourceTag'  customize = (ResourceTag <<< customize) { "ResourceId": (NullOrUndefined Nothing), "TagsList": (NullOrUndefined Nothing) }
+newResourceTag' :: ( { "ResourceId" :: Maybe (String) , "TagsList" :: Maybe (TagsList) } -> {"ResourceId" :: Maybe (String) , "TagsList" :: Maybe (TagsList) } ) -> ResourceTag
+newResourceTag'  customize = (ResourceTag <<< customize) { "ResourceId": Nothing, "TagsList": Nothing }
 
 
 
@@ -1148,7 +1147,7 @@ instance encodeStopLoggingResponse :: Encode StopLoggingResponse where encode = 
 -- | <p>A custom key-value pair associated with a resource such as a CloudTrail trail.</p>
 newtype Tag = Tag 
   { "Key" :: (String)
-  , "Value" :: NullOrUndefined (String)
+  , "Value" :: Maybe (String)
   }
 derive instance newtypeTag :: Newtype Tag _
 derive instance repGenericTag :: Generic Tag _
@@ -1158,12 +1157,12 @@ instance encodeTag :: Encode Tag where encode = genericEncode options
 
 -- | Constructs Tag from required parameters
 newTag :: String -> Tag
-newTag _Key = Tag { "Key": _Key, "Value": (NullOrUndefined Nothing) }
+newTag _Key = Tag { "Key": _Key, "Value": Nothing }
 
 -- | Constructs Tag's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTag' :: String -> ( { "Key" :: (String) , "Value" :: NullOrUndefined (String) } -> {"Key" :: (String) , "Value" :: NullOrUndefined (String) } ) -> Tag
-newTag' _Key customize = (Tag <<< customize) { "Key": _Key, "Value": (NullOrUndefined Nothing) }
+newTag' :: String -> ( { "Key" :: (String) , "Value" :: Maybe (String) } -> {"Key" :: (String) , "Value" :: Maybe (String) } ) -> Tag
+newTag' _Key customize = (Tag <<< customize) { "Key": _Key, "Value": Nothing }
 
 
 
@@ -1189,20 +1188,20 @@ instance encodeTagsList :: Encode TagsList where encode = genericEncode options
 
 -- | <p>The settings for a trail.</p>
 newtype Trail = Trail 
-  { "Name" :: NullOrUndefined (String)
-  , "S3BucketName" :: NullOrUndefined (String)
-  , "S3KeyPrefix" :: NullOrUndefined (String)
-  , "SnsTopicName" :: NullOrUndefined (String)
-  , "SnsTopicARN" :: NullOrUndefined (String)
-  , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean)
-  , "IsMultiRegionTrail" :: NullOrUndefined (Boolean)
-  , "HomeRegion" :: NullOrUndefined (String)
-  , "TrailARN" :: NullOrUndefined (String)
-  , "LogFileValidationEnabled" :: NullOrUndefined (Boolean)
-  , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String)
-  , "CloudWatchLogsRoleArn" :: NullOrUndefined (String)
-  , "KmsKeyId" :: NullOrUndefined (String)
-  , "HasCustomEventSelectors" :: NullOrUndefined (Boolean)
+  { "Name" :: Maybe (String)
+  , "S3BucketName" :: Maybe (String)
+  , "S3KeyPrefix" :: Maybe (String)
+  , "SnsTopicName" :: Maybe (String)
+  , "SnsTopicARN" :: Maybe (String)
+  , "IncludeGlobalServiceEvents" :: Maybe (Boolean)
+  , "IsMultiRegionTrail" :: Maybe (Boolean)
+  , "HomeRegion" :: Maybe (String)
+  , "TrailARN" :: Maybe (String)
+  , "LogFileValidationEnabled" :: Maybe (Boolean)
+  , "CloudWatchLogsLogGroupArn" :: Maybe (String)
+  , "CloudWatchLogsRoleArn" :: Maybe (String)
+  , "KmsKeyId" :: Maybe (String)
+  , "HasCustomEventSelectors" :: Maybe (Boolean)
   }
 derive instance newtypeTrail :: Newtype Trail _
 derive instance repGenericTrail :: Generic Trail _
@@ -1212,12 +1211,12 @@ instance encodeTrail :: Encode Trail where encode = genericEncode options
 
 -- | Constructs Trail from required parameters
 newTrail :: Trail
-newTrail  = Trail { "CloudWatchLogsLogGroupArn": (NullOrUndefined Nothing), "CloudWatchLogsRoleArn": (NullOrUndefined Nothing), "HasCustomEventSelectors": (NullOrUndefined Nothing), "HomeRegion": (NullOrUndefined Nothing), "IncludeGlobalServiceEvents": (NullOrUndefined Nothing), "IsMultiRegionTrail": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "LogFileValidationEnabled": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "S3BucketName": (NullOrUndefined Nothing), "S3KeyPrefix": (NullOrUndefined Nothing), "SnsTopicARN": (NullOrUndefined Nothing), "SnsTopicName": (NullOrUndefined Nothing), "TrailARN": (NullOrUndefined Nothing) }
+newTrail  = Trail { "CloudWatchLogsLogGroupArn": Nothing, "CloudWatchLogsRoleArn": Nothing, "HasCustomEventSelectors": Nothing, "HomeRegion": Nothing, "IncludeGlobalServiceEvents": Nothing, "IsMultiRegionTrail": Nothing, "KmsKeyId": Nothing, "LogFileValidationEnabled": Nothing, "Name": Nothing, "S3BucketName": Nothing, "S3KeyPrefix": Nothing, "SnsTopicARN": Nothing, "SnsTopicName": Nothing, "TrailARN": Nothing }
 
 -- | Constructs Trail's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTrail' :: ( { "Name" :: NullOrUndefined (String) , "S3BucketName" :: NullOrUndefined (String) , "S3KeyPrefix" :: NullOrUndefined (String) , "SnsTopicName" :: NullOrUndefined (String) , "SnsTopicARN" :: NullOrUndefined (String) , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean) , "IsMultiRegionTrail" :: NullOrUndefined (Boolean) , "HomeRegion" :: NullOrUndefined (String) , "TrailARN" :: NullOrUndefined (String) , "LogFileValidationEnabled" :: NullOrUndefined (Boolean) , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String) , "CloudWatchLogsRoleArn" :: NullOrUndefined (String) , "KmsKeyId" :: NullOrUndefined (String) , "HasCustomEventSelectors" :: NullOrUndefined (Boolean) } -> {"Name" :: NullOrUndefined (String) , "S3BucketName" :: NullOrUndefined (String) , "S3KeyPrefix" :: NullOrUndefined (String) , "SnsTopicName" :: NullOrUndefined (String) , "SnsTopicARN" :: NullOrUndefined (String) , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean) , "IsMultiRegionTrail" :: NullOrUndefined (Boolean) , "HomeRegion" :: NullOrUndefined (String) , "TrailARN" :: NullOrUndefined (String) , "LogFileValidationEnabled" :: NullOrUndefined (Boolean) , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String) , "CloudWatchLogsRoleArn" :: NullOrUndefined (String) , "KmsKeyId" :: NullOrUndefined (String) , "HasCustomEventSelectors" :: NullOrUndefined (Boolean) } ) -> Trail
-newTrail'  customize = (Trail <<< customize) { "CloudWatchLogsLogGroupArn": (NullOrUndefined Nothing), "CloudWatchLogsRoleArn": (NullOrUndefined Nothing), "HasCustomEventSelectors": (NullOrUndefined Nothing), "HomeRegion": (NullOrUndefined Nothing), "IncludeGlobalServiceEvents": (NullOrUndefined Nothing), "IsMultiRegionTrail": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "LogFileValidationEnabled": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "S3BucketName": (NullOrUndefined Nothing), "S3KeyPrefix": (NullOrUndefined Nothing), "SnsTopicARN": (NullOrUndefined Nothing), "SnsTopicName": (NullOrUndefined Nothing), "TrailARN": (NullOrUndefined Nothing) }
+newTrail' :: ( { "Name" :: Maybe (String) , "S3BucketName" :: Maybe (String) , "S3KeyPrefix" :: Maybe (String) , "SnsTopicName" :: Maybe (String) , "SnsTopicARN" :: Maybe (String) , "IncludeGlobalServiceEvents" :: Maybe (Boolean) , "IsMultiRegionTrail" :: Maybe (Boolean) , "HomeRegion" :: Maybe (String) , "TrailARN" :: Maybe (String) , "LogFileValidationEnabled" :: Maybe (Boolean) , "CloudWatchLogsLogGroupArn" :: Maybe (String) , "CloudWatchLogsRoleArn" :: Maybe (String) , "KmsKeyId" :: Maybe (String) , "HasCustomEventSelectors" :: Maybe (Boolean) } -> {"Name" :: Maybe (String) , "S3BucketName" :: Maybe (String) , "S3KeyPrefix" :: Maybe (String) , "SnsTopicName" :: Maybe (String) , "SnsTopicARN" :: Maybe (String) , "IncludeGlobalServiceEvents" :: Maybe (Boolean) , "IsMultiRegionTrail" :: Maybe (Boolean) , "HomeRegion" :: Maybe (String) , "TrailARN" :: Maybe (String) , "LogFileValidationEnabled" :: Maybe (Boolean) , "CloudWatchLogsLogGroupArn" :: Maybe (String) , "CloudWatchLogsRoleArn" :: Maybe (String) , "KmsKeyId" :: Maybe (String) , "HasCustomEventSelectors" :: Maybe (Boolean) } ) -> Trail
+newTrail'  customize = (Trail <<< customize) { "CloudWatchLogsLogGroupArn": Nothing, "CloudWatchLogsRoleArn": Nothing, "HasCustomEventSelectors": Nothing, "HomeRegion": Nothing, "IncludeGlobalServiceEvents": Nothing, "IsMultiRegionTrail": Nothing, "KmsKeyId": Nothing, "LogFileValidationEnabled": Nothing, "Name": Nothing, "S3BucketName": Nothing, "S3KeyPrefix": Nothing, "SnsTopicARN": Nothing, "SnsTopicName": Nothing, "TrailARN": Nothing }
 
 
 
@@ -1282,15 +1281,15 @@ instance encodeUnsupportedOperationException :: Encode UnsupportedOperationExcep
 -- | <p>Specifies settings to update for the trail.</p>
 newtype UpdateTrailRequest = UpdateTrailRequest 
   { "Name" :: (String)
-  , "S3BucketName" :: NullOrUndefined (String)
-  , "S3KeyPrefix" :: NullOrUndefined (String)
-  , "SnsTopicName" :: NullOrUndefined (String)
-  , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean)
-  , "IsMultiRegionTrail" :: NullOrUndefined (Boolean)
-  , "EnableLogFileValidation" :: NullOrUndefined (Boolean)
-  , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String)
-  , "CloudWatchLogsRoleArn" :: NullOrUndefined (String)
-  , "KmsKeyId" :: NullOrUndefined (String)
+  , "S3BucketName" :: Maybe (String)
+  , "S3KeyPrefix" :: Maybe (String)
+  , "SnsTopicName" :: Maybe (String)
+  , "IncludeGlobalServiceEvents" :: Maybe (Boolean)
+  , "IsMultiRegionTrail" :: Maybe (Boolean)
+  , "EnableLogFileValidation" :: Maybe (Boolean)
+  , "CloudWatchLogsLogGroupArn" :: Maybe (String)
+  , "CloudWatchLogsRoleArn" :: Maybe (String)
+  , "KmsKeyId" :: Maybe (String)
   }
 derive instance newtypeUpdateTrailRequest :: Newtype UpdateTrailRequest _
 derive instance repGenericUpdateTrailRequest :: Generic UpdateTrailRequest _
@@ -1300,29 +1299,29 @@ instance encodeUpdateTrailRequest :: Encode UpdateTrailRequest where encode = ge
 
 -- | Constructs UpdateTrailRequest from required parameters
 newUpdateTrailRequest :: String -> UpdateTrailRequest
-newUpdateTrailRequest _Name = UpdateTrailRequest { "Name": _Name, "CloudWatchLogsLogGroupArn": (NullOrUndefined Nothing), "CloudWatchLogsRoleArn": (NullOrUndefined Nothing), "EnableLogFileValidation": (NullOrUndefined Nothing), "IncludeGlobalServiceEvents": (NullOrUndefined Nothing), "IsMultiRegionTrail": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "S3BucketName": (NullOrUndefined Nothing), "S3KeyPrefix": (NullOrUndefined Nothing), "SnsTopicName": (NullOrUndefined Nothing) }
+newUpdateTrailRequest _Name = UpdateTrailRequest { "Name": _Name, "CloudWatchLogsLogGroupArn": Nothing, "CloudWatchLogsRoleArn": Nothing, "EnableLogFileValidation": Nothing, "IncludeGlobalServiceEvents": Nothing, "IsMultiRegionTrail": Nothing, "KmsKeyId": Nothing, "S3BucketName": Nothing, "S3KeyPrefix": Nothing, "SnsTopicName": Nothing }
 
 -- | Constructs UpdateTrailRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateTrailRequest' :: String -> ( { "Name" :: (String) , "S3BucketName" :: NullOrUndefined (String) , "S3KeyPrefix" :: NullOrUndefined (String) , "SnsTopicName" :: NullOrUndefined (String) , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean) , "IsMultiRegionTrail" :: NullOrUndefined (Boolean) , "EnableLogFileValidation" :: NullOrUndefined (Boolean) , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String) , "CloudWatchLogsRoleArn" :: NullOrUndefined (String) , "KmsKeyId" :: NullOrUndefined (String) } -> {"Name" :: (String) , "S3BucketName" :: NullOrUndefined (String) , "S3KeyPrefix" :: NullOrUndefined (String) , "SnsTopicName" :: NullOrUndefined (String) , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean) , "IsMultiRegionTrail" :: NullOrUndefined (Boolean) , "EnableLogFileValidation" :: NullOrUndefined (Boolean) , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String) , "CloudWatchLogsRoleArn" :: NullOrUndefined (String) , "KmsKeyId" :: NullOrUndefined (String) } ) -> UpdateTrailRequest
-newUpdateTrailRequest' _Name customize = (UpdateTrailRequest <<< customize) { "Name": _Name, "CloudWatchLogsLogGroupArn": (NullOrUndefined Nothing), "CloudWatchLogsRoleArn": (NullOrUndefined Nothing), "EnableLogFileValidation": (NullOrUndefined Nothing), "IncludeGlobalServiceEvents": (NullOrUndefined Nothing), "IsMultiRegionTrail": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "S3BucketName": (NullOrUndefined Nothing), "S3KeyPrefix": (NullOrUndefined Nothing), "SnsTopicName": (NullOrUndefined Nothing) }
+newUpdateTrailRequest' :: String -> ( { "Name" :: (String) , "S3BucketName" :: Maybe (String) , "S3KeyPrefix" :: Maybe (String) , "SnsTopicName" :: Maybe (String) , "IncludeGlobalServiceEvents" :: Maybe (Boolean) , "IsMultiRegionTrail" :: Maybe (Boolean) , "EnableLogFileValidation" :: Maybe (Boolean) , "CloudWatchLogsLogGroupArn" :: Maybe (String) , "CloudWatchLogsRoleArn" :: Maybe (String) , "KmsKeyId" :: Maybe (String) } -> {"Name" :: (String) , "S3BucketName" :: Maybe (String) , "S3KeyPrefix" :: Maybe (String) , "SnsTopicName" :: Maybe (String) , "IncludeGlobalServiceEvents" :: Maybe (Boolean) , "IsMultiRegionTrail" :: Maybe (Boolean) , "EnableLogFileValidation" :: Maybe (Boolean) , "CloudWatchLogsLogGroupArn" :: Maybe (String) , "CloudWatchLogsRoleArn" :: Maybe (String) , "KmsKeyId" :: Maybe (String) } ) -> UpdateTrailRequest
+newUpdateTrailRequest' _Name customize = (UpdateTrailRequest <<< customize) { "Name": _Name, "CloudWatchLogsLogGroupArn": Nothing, "CloudWatchLogsRoleArn": Nothing, "EnableLogFileValidation": Nothing, "IncludeGlobalServiceEvents": Nothing, "IsMultiRegionTrail": Nothing, "KmsKeyId": Nothing, "S3BucketName": Nothing, "S3KeyPrefix": Nothing, "SnsTopicName": Nothing }
 
 
 
 -- | <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
 newtype UpdateTrailResponse = UpdateTrailResponse 
-  { "Name" :: NullOrUndefined (String)
-  , "S3BucketName" :: NullOrUndefined (String)
-  , "S3KeyPrefix" :: NullOrUndefined (String)
-  , "SnsTopicName" :: NullOrUndefined (String)
-  , "SnsTopicARN" :: NullOrUndefined (String)
-  , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean)
-  , "IsMultiRegionTrail" :: NullOrUndefined (Boolean)
-  , "TrailARN" :: NullOrUndefined (String)
-  , "LogFileValidationEnabled" :: NullOrUndefined (Boolean)
-  , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String)
-  , "CloudWatchLogsRoleArn" :: NullOrUndefined (String)
-  , "KmsKeyId" :: NullOrUndefined (String)
+  { "Name" :: Maybe (String)
+  , "S3BucketName" :: Maybe (String)
+  , "S3KeyPrefix" :: Maybe (String)
+  , "SnsTopicName" :: Maybe (String)
+  , "SnsTopicARN" :: Maybe (String)
+  , "IncludeGlobalServiceEvents" :: Maybe (Boolean)
+  , "IsMultiRegionTrail" :: Maybe (Boolean)
+  , "TrailARN" :: Maybe (String)
+  , "LogFileValidationEnabled" :: Maybe (Boolean)
+  , "CloudWatchLogsLogGroupArn" :: Maybe (String)
+  , "CloudWatchLogsRoleArn" :: Maybe (String)
+  , "KmsKeyId" :: Maybe (String)
   }
 derive instance newtypeUpdateTrailResponse :: Newtype UpdateTrailResponse _
 derive instance repGenericUpdateTrailResponse :: Generic UpdateTrailResponse _
@@ -1332,10 +1331,10 @@ instance encodeUpdateTrailResponse :: Encode UpdateTrailResponse where encode = 
 
 -- | Constructs UpdateTrailResponse from required parameters
 newUpdateTrailResponse :: UpdateTrailResponse
-newUpdateTrailResponse  = UpdateTrailResponse { "CloudWatchLogsLogGroupArn": (NullOrUndefined Nothing), "CloudWatchLogsRoleArn": (NullOrUndefined Nothing), "IncludeGlobalServiceEvents": (NullOrUndefined Nothing), "IsMultiRegionTrail": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "LogFileValidationEnabled": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "S3BucketName": (NullOrUndefined Nothing), "S3KeyPrefix": (NullOrUndefined Nothing), "SnsTopicARN": (NullOrUndefined Nothing), "SnsTopicName": (NullOrUndefined Nothing), "TrailARN": (NullOrUndefined Nothing) }
+newUpdateTrailResponse  = UpdateTrailResponse { "CloudWatchLogsLogGroupArn": Nothing, "CloudWatchLogsRoleArn": Nothing, "IncludeGlobalServiceEvents": Nothing, "IsMultiRegionTrail": Nothing, "KmsKeyId": Nothing, "LogFileValidationEnabled": Nothing, "Name": Nothing, "S3BucketName": Nothing, "S3KeyPrefix": Nothing, "SnsTopicARN": Nothing, "SnsTopicName": Nothing, "TrailARN": Nothing }
 
 -- | Constructs UpdateTrailResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateTrailResponse' :: ( { "Name" :: NullOrUndefined (String) , "S3BucketName" :: NullOrUndefined (String) , "S3KeyPrefix" :: NullOrUndefined (String) , "SnsTopicName" :: NullOrUndefined (String) , "SnsTopicARN" :: NullOrUndefined (String) , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean) , "IsMultiRegionTrail" :: NullOrUndefined (Boolean) , "TrailARN" :: NullOrUndefined (String) , "LogFileValidationEnabled" :: NullOrUndefined (Boolean) , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String) , "CloudWatchLogsRoleArn" :: NullOrUndefined (String) , "KmsKeyId" :: NullOrUndefined (String) } -> {"Name" :: NullOrUndefined (String) , "S3BucketName" :: NullOrUndefined (String) , "S3KeyPrefix" :: NullOrUndefined (String) , "SnsTopicName" :: NullOrUndefined (String) , "SnsTopicARN" :: NullOrUndefined (String) , "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean) , "IsMultiRegionTrail" :: NullOrUndefined (Boolean) , "TrailARN" :: NullOrUndefined (String) , "LogFileValidationEnabled" :: NullOrUndefined (Boolean) , "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String) , "CloudWatchLogsRoleArn" :: NullOrUndefined (String) , "KmsKeyId" :: NullOrUndefined (String) } ) -> UpdateTrailResponse
-newUpdateTrailResponse'  customize = (UpdateTrailResponse <<< customize) { "CloudWatchLogsLogGroupArn": (NullOrUndefined Nothing), "CloudWatchLogsRoleArn": (NullOrUndefined Nothing), "IncludeGlobalServiceEvents": (NullOrUndefined Nothing), "IsMultiRegionTrail": (NullOrUndefined Nothing), "KmsKeyId": (NullOrUndefined Nothing), "LogFileValidationEnabled": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "S3BucketName": (NullOrUndefined Nothing), "S3KeyPrefix": (NullOrUndefined Nothing), "SnsTopicARN": (NullOrUndefined Nothing), "SnsTopicName": (NullOrUndefined Nothing), "TrailARN": (NullOrUndefined Nothing) }
+newUpdateTrailResponse' :: ( { "Name" :: Maybe (String) , "S3BucketName" :: Maybe (String) , "S3KeyPrefix" :: Maybe (String) , "SnsTopicName" :: Maybe (String) , "SnsTopicARN" :: Maybe (String) , "IncludeGlobalServiceEvents" :: Maybe (Boolean) , "IsMultiRegionTrail" :: Maybe (Boolean) , "TrailARN" :: Maybe (String) , "LogFileValidationEnabled" :: Maybe (Boolean) , "CloudWatchLogsLogGroupArn" :: Maybe (String) , "CloudWatchLogsRoleArn" :: Maybe (String) , "KmsKeyId" :: Maybe (String) } -> {"Name" :: Maybe (String) , "S3BucketName" :: Maybe (String) , "S3KeyPrefix" :: Maybe (String) , "SnsTopicName" :: Maybe (String) , "SnsTopicARN" :: Maybe (String) , "IncludeGlobalServiceEvents" :: Maybe (Boolean) , "IsMultiRegionTrail" :: Maybe (Boolean) , "TrailARN" :: Maybe (String) , "LogFileValidationEnabled" :: Maybe (Boolean) , "CloudWatchLogsLogGroupArn" :: Maybe (String) , "CloudWatchLogsRoleArn" :: Maybe (String) , "KmsKeyId" :: Maybe (String) } ) -> UpdateTrailResponse
+newUpdateTrailResponse'  customize = (UpdateTrailResponse <<< customize) { "CloudWatchLogsLogGroupArn": Nothing, "CloudWatchLogsRoleArn": Nothing, "IncludeGlobalServiceEvents": Nothing, "IsMultiRegionTrail": Nothing, "KmsKeyId": Nothing, "LogFileValidationEnabled": Nothing, "Name": Nothing, "S3BucketName": Nothing, "S3KeyPrefix": Nothing, "SnsTopicARN": Nothing, "SnsTopicName": Nothing, "TrailARN": Nothing }
 

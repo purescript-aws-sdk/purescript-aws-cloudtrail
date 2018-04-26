@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype AddTagsRequest
-  = AddTagsRequest { "ResourceId" :: String, "TagsList" :: NullOrUndefined (TagsList) }
+  = AddTagsRequest { "ResourceId" :: String, "TagsList" :: Maybe (TagsList) }
 ```
 
 <p>Specifies the tags to add to a trail.</p>
@@ -35,7 +35,7 @@ Constructs AddTagsRequest from required parameters
 #### `newAddTagsRequest'`
 
 ``` purescript
-newAddTagsRequest' :: String -> ({ "ResourceId" :: String, "TagsList" :: NullOrUndefined (TagsList) } -> { "ResourceId" :: String, "TagsList" :: NullOrUndefined (TagsList) }) -> AddTagsRequest
+newAddTagsRequest' :: String -> ({ "ResourceId" :: String, "TagsList" :: Maybe (TagsList) } -> { "ResourceId" :: String, "TagsList" :: Maybe (TagsList) }) -> AddTagsRequest
 ```
 
 Constructs AddTagsRequest's fields from required parameters
@@ -114,7 +114,7 @@ Encode CloudWatchLogsDeliveryUnavailableException
 
 ``` purescript
 newtype CreateTrailRequest
-  = CreateTrailRequest { "Name" :: String, "S3BucketName" :: String, "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "EnableLogFileValidation" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String) }
+  = CreateTrailRequest { "Name" :: String, "S3BucketName" :: String, "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "EnableLogFileValidation" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String) }
 ```
 
 <p>Specifies the settings for each trail.</p>
@@ -139,7 +139,7 @@ Constructs CreateTrailRequest from required parameters
 #### `newCreateTrailRequest'`
 
 ``` purescript
-newCreateTrailRequest' :: String -> String -> ({ "Name" :: String, "S3BucketName" :: String, "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "EnableLogFileValidation" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String) } -> { "Name" :: String, "S3BucketName" :: String, "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "EnableLogFileValidation" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String) }) -> CreateTrailRequest
+newCreateTrailRequest' :: String -> String -> ({ "Name" :: String, "S3BucketName" :: String, "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "EnableLogFileValidation" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String) } -> { "Name" :: String, "S3BucketName" :: String, "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "EnableLogFileValidation" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String) }) -> CreateTrailRequest
 ```
 
 Constructs CreateTrailRequest's fields from required parameters
@@ -148,7 +148,7 @@ Constructs CreateTrailRequest's fields from required parameters
 
 ``` purescript
 newtype CreateTrailResponse
-  = CreateTrailResponse { "Name" :: NullOrUndefined (String), "S3BucketName" :: NullOrUndefined (String), "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "SnsTopicARN" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "TrailARN" :: NullOrUndefined (String), "LogFileValidationEnabled" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String) }
+  = CreateTrailResponse { "Name" :: Maybe (String), "S3BucketName" :: Maybe (String), "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "SnsTopicARN" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "TrailARN" :: Maybe (String), "LogFileValidationEnabled" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String) }
 ```
 
 <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
@@ -173,7 +173,7 @@ Constructs CreateTrailResponse from required parameters
 #### `newCreateTrailResponse'`
 
 ``` purescript
-newCreateTrailResponse' :: ({ "Name" :: NullOrUndefined (String), "S3BucketName" :: NullOrUndefined (String), "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "SnsTopicARN" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "TrailARN" :: NullOrUndefined (String), "LogFileValidationEnabled" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String) } -> { "Name" :: NullOrUndefined (String), "S3BucketName" :: NullOrUndefined (String), "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "SnsTopicARN" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "TrailARN" :: NullOrUndefined (String), "LogFileValidationEnabled" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String) }) -> CreateTrailResponse
+newCreateTrailResponse' :: ({ "Name" :: Maybe (String), "S3BucketName" :: Maybe (String), "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "SnsTopicARN" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "TrailARN" :: Maybe (String), "LogFileValidationEnabled" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String) } -> { "Name" :: Maybe (String), "S3BucketName" :: Maybe (String), "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "SnsTopicARN" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "TrailARN" :: Maybe (String), "LogFileValidationEnabled" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String) }) -> CreateTrailResponse
 ```
 
 Constructs CreateTrailResponse's fields from required parameters
@@ -182,7 +182,7 @@ Constructs CreateTrailResponse's fields from required parameters
 
 ``` purescript
 newtype DataResource
-  = DataResource { "Type" :: NullOrUndefined (String), "Values" :: NullOrUndefined (DataResourceValues) }
+  = DataResource { "Type" :: Maybe (String), "Values" :: Maybe (DataResourceValues) }
 ```
 
 <p>The Amazon S3 objects that you specify in your event selectors for your trail to log data events. Data events are object-level API operations that access S3 objects, such as <code>GetObject</code>, <code>DeleteObject</code>, and <code>PutObject</code>. You can specify up to 250 S3 buckets and object prefixes for a trail. </p> <p>Example</p> <ol> <li> <p>You create an event selector for a trail and specify an S3 bucket and an empty prefix, such as <code>arn:aws:s3:::bucket-1/</code>.</p> </li> <li> <p>You upload an image file to <code>bucket-1</code>.</p> </li> <li> <p>The <code>PutObject</code> API operation occurs on an object in the S3 bucket that you specified in the event selector. The trail processes and logs the event.</p> </li> <li> <p>You upload another image file to a different S3 bucket named <code>arn:aws:s3:::bucket-2</code>.</p> </li> <li> <p>The event occurs on an object in an S3 bucket that you didn't specify in the event selector. The trail doesn’t log the event.</p> </li> </ol>
@@ -207,7 +207,7 @@ Constructs DataResource from required parameters
 #### `newDataResource'`
 
 ``` purescript
-newDataResource' :: ({ "Type" :: NullOrUndefined (String), "Values" :: NullOrUndefined (DataResourceValues) } -> { "Type" :: NullOrUndefined (String), "Values" :: NullOrUndefined (DataResourceValues) }) -> DataResource
+newDataResource' :: ({ "Type" :: Maybe (String), "Values" :: Maybe (DataResourceValues) } -> { "Type" :: Maybe (String), "Values" :: Maybe (DataResourceValues) }) -> DataResource
 ```
 
 Constructs DataResource's fields from required parameters
@@ -316,7 +316,7 @@ Encode DeleteTrailResponse
 
 ``` purescript
 newtype DescribeTrailsRequest
-  = DescribeTrailsRequest { trailNameList :: NullOrUndefined (TrailNameList), includeShadowTrails :: NullOrUndefined (Boolean) }
+  = DescribeTrailsRequest { trailNameList :: Maybe (TrailNameList), includeShadowTrails :: Maybe (Boolean) }
 ```
 
 <p>Returns information about the trail.</p>
@@ -341,7 +341,7 @@ Constructs DescribeTrailsRequest from required parameters
 #### `newDescribeTrailsRequest'`
 
 ``` purescript
-newDescribeTrailsRequest' :: ({ trailNameList :: NullOrUndefined (TrailNameList), includeShadowTrails :: NullOrUndefined (Boolean) } -> { trailNameList :: NullOrUndefined (TrailNameList), includeShadowTrails :: NullOrUndefined (Boolean) }) -> DescribeTrailsRequest
+newDescribeTrailsRequest' :: ({ trailNameList :: Maybe (TrailNameList), includeShadowTrails :: Maybe (Boolean) } -> { trailNameList :: Maybe (TrailNameList), includeShadowTrails :: Maybe (Boolean) }) -> DescribeTrailsRequest
 ```
 
 Constructs DescribeTrailsRequest's fields from required parameters
@@ -350,7 +350,7 @@ Constructs DescribeTrailsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeTrailsResponse
-  = DescribeTrailsResponse { trailList :: NullOrUndefined (TrailList) }
+  = DescribeTrailsResponse { trailList :: Maybe (TrailList) }
 ```
 
 <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
@@ -375,7 +375,7 @@ Constructs DescribeTrailsResponse from required parameters
 #### `newDescribeTrailsResponse'`
 
 ``` purescript
-newDescribeTrailsResponse' :: ({ trailList :: NullOrUndefined (TrailList) } -> { trailList :: NullOrUndefined (TrailList) }) -> DescribeTrailsResponse
+newDescribeTrailsResponse' :: ({ trailList :: Maybe (TrailList) } -> { trailList :: Maybe (TrailList) }) -> DescribeTrailsResponse
 ```
 
 Constructs DescribeTrailsResponse's fields from required parameters
@@ -384,7 +384,7 @@ Constructs DescribeTrailsResponse's fields from required parameters
 
 ``` purescript
 newtype Event
-  = Event { "EventId" :: NullOrUndefined (String), "EventName" :: NullOrUndefined (String), "EventTime" :: NullOrUndefined (Date), "EventSource" :: NullOrUndefined (String), "Username" :: NullOrUndefined (String), "Resources" :: NullOrUndefined (ResourceList), "CloudTrailEvent" :: NullOrUndefined (String) }
+  = Event { "EventId" :: Maybe (String), "EventName" :: Maybe (String), "EventTime" :: Maybe (Date), "EventSource" :: Maybe (String), "Username" :: Maybe (String), "Resources" :: Maybe (ResourceList), "CloudTrailEvent" :: Maybe (String) }
 ```
 
 <p>Contains information about an event that was returned by a lookup request. The result includes a representation of a CloudTrail event.</p>
@@ -409,7 +409,7 @@ Constructs Event from required parameters
 #### `newEvent'`
 
 ``` purescript
-newEvent' :: ({ "EventId" :: NullOrUndefined (String), "EventName" :: NullOrUndefined (String), "EventTime" :: NullOrUndefined (Date), "EventSource" :: NullOrUndefined (String), "Username" :: NullOrUndefined (String), "Resources" :: NullOrUndefined (ResourceList), "CloudTrailEvent" :: NullOrUndefined (String) } -> { "EventId" :: NullOrUndefined (String), "EventName" :: NullOrUndefined (String), "EventTime" :: NullOrUndefined (Date), "EventSource" :: NullOrUndefined (String), "Username" :: NullOrUndefined (String), "Resources" :: NullOrUndefined (ResourceList), "CloudTrailEvent" :: NullOrUndefined (String) }) -> Event
+newEvent' :: ({ "EventId" :: Maybe (String), "EventName" :: Maybe (String), "EventTime" :: Maybe (Date), "EventSource" :: Maybe (String), "Username" :: Maybe (String), "Resources" :: Maybe (ResourceList), "CloudTrailEvent" :: Maybe (String) } -> { "EventId" :: Maybe (String), "EventName" :: Maybe (String), "EventTime" :: Maybe (Date), "EventSource" :: Maybe (String), "Username" :: Maybe (String), "Resources" :: Maybe (ResourceList), "CloudTrailEvent" :: Maybe (String) }) -> Event
 ```
 
 Constructs Event's fields from required parameters
@@ -418,7 +418,7 @@ Constructs Event's fields from required parameters
 
 ``` purescript
 newtype EventSelector
-  = EventSelector { "ReadWriteType" :: NullOrUndefined (ReadWriteType), "IncludeManagementEvents" :: NullOrUndefined (Boolean), "DataResources" :: NullOrUndefined (DataResources) }
+  = EventSelector { "ReadWriteType" :: Maybe (ReadWriteType), "IncludeManagementEvents" :: Maybe (Boolean), "DataResources" :: Maybe (DataResources) }
 ```
 
 <p>Use event selectors to specify whether you want your trail to log management and/or data events. When an event occurs in your account, CloudTrail evaluates the event selector for all trails. For each trail, if the event matches any event selector, the trail processes and logs the event. If the event doesn't match any event selector, the trail doesn't log the event.</p> <p>You can configure up to five event selectors for a trail.</p>
@@ -443,7 +443,7 @@ Constructs EventSelector from required parameters
 #### `newEventSelector'`
 
 ``` purescript
-newEventSelector' :: ({ "ReadWriteType" :: NullOrUndefined (ReadWriteType), "IncludeManagementEvents" :: NullOrUndefined (Boolean), "DataResources" :: NullOrUndefined (DataResources) } -> { "ReadWriteType" :: NullOrUndefined (ReadWriteType), "IncludeManagementEvents" :: NullOrUndefined (Boolean), "DataResources" :: NullOrUndefined (DataResources) }) -> EventSelector
+newEventSelector' :: ({ "ReadWriteType" :: Maybe (ReadWriteType), "IncludeManagementEvents" :: Maybe (Boolean), "DataResources" :: Maybe (DataResources) } -> { "ReadWriteType" :: Maybe (ReadWriteType), "IncludeManagementEvents" :: Maybe (Boolean), "DataResources" :: Maybe (DataResources) }) -> EventSelector
 ```
 
 Constructs EventSelector's fields from required parameters
@@ -516,7 +516,7 @@ Constructs GetEventSelectorsRequest's fields from required parameters
 
 ``` purescript
 newtype GetEventSelectorsResponse
-  = GetEventSelectorsResponse { "TrailARN" :: NullOrUndefined (String), "EventSelectors" :: NullOrUndefined (EventSelectors) }
+  = GetEventSelectorsResponse { "TrailARN" :: Maybe (String), "EventSelectors" :: Maybe (EventSelectors) }
 ```
 
 ##### Instances
@@ -539,7 +539,7 @@ Constructs GetEventSelectorsResponse from required parameters
 #### `newGetEventSelectorsResponse'`
 
 ``` purescript
-newGetEventSelectorsResponse' :: ({ "TrailARN" :: NullOrUndefined (String), "EventSelectors" :: NullOrUndefined (EventSelectors) } -> { "TrailARN" :: NullOrUndefined (String), "EventSelectors" :: NullOrUndefined (EventSelectors) }) -> GetEventSelectorsResponse
+newGetEventSelectorsResponse' :: ({ "TrailARN" :: Maybe (String), "EventSelectors" :: Maybe (EventSelectors) } -> { "TrailARN" :: Maybe (String), "EventSelectors" :: Maybe (EventSelectors) }) -> GetEventSelectorsResponse
 ```
 
 Constructs GetEventSelectorsResponse's fields from required parameters
@@ -582,7 +582,7 @@ Constructs GetTrailStatusRequest's fields from required parameters
 
 ``` purescript
 newtype GetTrailStatusResponse
-  = GetTrailStatusResponse { "IsLogging" :: NullOrUndefined (Boolean), "LatestDeliveryError" :: NullOrUndefined (String), "LatestNotificationError" :: NullOrUndefined (String), "LatestDeliveryTime" :: NullOrUndefined (Date), "LatestNotificationTime" :: NullOrUndefined (Date), "StartLoggingTime" :: NullOrUndefined (Date), "StopLoggingTime" :: NullOrUndefined (Date), "LatestCloudWatchLogsDeliveryError" :: NullOrUndefined (String), "LatestCloudWatchLogsDeliveryTime" :: NullOrUndefined (Date), "LatestDigestDeliveryTime" :: NullOrUndefined (Date), "LatestDigestDeliveryError" :: NullOrUndefined (String), "LatestDeliveryAttemptTime" :: NullOrUndefined (String), "LatestNotificationAttemptTime" :: NullOrUndefined (String), "LatestNotificationAttemptSucceeded" :: NullOrUndefined (String), "LatestDeliveryAttemptSucceeded" :: NullOrUndefined (String), "TimeLoggingStarted" :: NullOrUndefined (String), "TimeLoggingStopped" :: NullOrUndefined (String) }
+  = GetTrailStatusResponse { "IsLogging" :: Maybe (Boolean), "LatestDeliveryError" :: Maybe (String), "LatestNotificationError" :: Maybe (String), "LatestDeliveryTime" :: Maybe (Date), "LatestNotificationTime" :: Maybe (Date), "StartLoggingTime" :: Maybe (Date), "StopLoggingTime" :: Maybe (Date), "LatestCloudWatchLogsDeliveryError" :: Maybe (String), "LatestCloudWatchLogsDeliveryTime" :: Maybe (Date), "LatestDigestDeliveryTime" :: Maybe (Date), "LatestDigestDeliveryError" :: Maybe (String), "LatestDeliveryAttemptTime" :: Maybe (String), "LatestNotificationAttemptTime" :: Maybe (String), "LatestNotificationAttemptSucceeded" :: Maybe (String), "LatestDeliveryAttemptSucceeded" :: Maybe (String), "TimeLoggingStarted" :: Maybe (String), "TimeLoggingStopped" :: Maybe (String) }
 ```
 
 <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
@@ -607,7 +607,7 @@ Constructs GetTrailStatusResponse from required parameters
 #### `newGetTrailStatusResponse'`
 
 ``` purescript
-newGetTrailStatusResponse' :: ({ "IsLogging" :: NullOrUndefined (Boolean), "LatestDeliveryError" :: NullOrUndefined (String), "LatestNotificationError" :: NullOrUndefined (String), "LatestDeliveryTime" :: NullOrUndefined (Date), "LatestNotificationTime" :: NullOrUndefined (Date), "StartLoggingTime" :: NullOrUndefined (Date), "StopLoggingTime" :: NullOrUndefined (Date), "LatestCloudWatchLogsDeliveryError" :: NullOrUndefined (String), "LatestCloudWatchLogsDeliveryTime" :: NullOrUndefined (Date), "LatestDigestDeliveryTime" :: NullOrUndefined (Date), "LatestDigestDeliveryError" :: NullOrUndefined (String), "LatestDeliveryAttemptTime" :: NullOrUndefined (String), "LatestNotificationAttemptTime" :: NullOrUndefined (String), "LatestNotificationAttemptSucceeded" :: NullOrUndefined (String), "LatestDeliveryAttemptSucceeded" :: NullOrUndefined (String), "TimeLoggingStarted" :: NullOrUndefined (String), "TimeLoggingStopped" :: NullOrUndefined (String) } -> { "IsLogging" :: NullOrUndefined (Boolean), "LatestDeliveryError" :: NullOrUndefined (String), "LatestNotificationError" :: NullOrUndefined (String), "LatestDeliveryTime" :: NullOrUndefined (Date), "LatestNotificationTime" :: NullOrUndefined (Date), "StartLoggingTime" :: NullOrUndefined (Date), "StopLoggingTime" :: NullOrUndefined (Date), "LatestCloudWatchLogsDeliveryError" :: NullOrUndefined (String), "LatestCloudWatchLogsDeliveryTime" :: NullOrUndefined (Date), "LatestDigestDeliveryTime" :: NullOrUndefined (Date), "LatestDigestDeliveryError" :: NullOrUndefined (String), "LatestDeliveryAttemptTime" :: NullOrUndefined (String), "LatestNotificationAttemptTime" :: NullOrUndefined (String), "LatestNotificationAttemptSucceeded" :: NullOrUndefined (String), "LatestDeliveryAttemptSucceeded" :: NullOrUndefined (String), "TimeLoggingStarted" :: NullOrUndefined (String), "TimeLoggingStopped" :: NullOrUndefined (String) }) -> GetTrailStatusResponse
+newGetTrailStatusResponse' :: ({ "IsLogging" :: Maybe (Boolean), "LatestDeliveryError" :: Maybe (String), "LatestNotificationError" :: Maybe (String), "LatestDeliveryTime" :: Maybe (Date), "LatestNotificationTime" :: Maybe (Date), "StartLoggingTime" :: Maybe (Date), "StopLoggingTime" :: Maybe (Date), "LatestCloudWatchLogsDeliveryError" :: Maybe (String), "LatestCloudWatchLogsDeliveryTime" :: Maybe (Date), "LatestDigestDeliveryTime" :: Maybe (Date), "LatestDigestDeliveryError" :: Maybe (String), "LatestDeliveryAttemptTime" :: Maybe (String), "LatestNotificationAttemptTime" :: Maybe (String), "LatestNotificationAttemptSucceeded" :: Maybe (String), "LatestDeliveryAttemptSucceeded" :: Maybe (String), "TimeLoggingStarted" :: Maybe (String), "TimeLoggingStopped" :: Maybe (String) } -> { "IsLogging" :: Maybe (Boolean), "LatestDeliveryError" :: Maybe (String), "LatestNotificationError" :: Maybe (String), "LatestDeliveryTime" :: Maybe (Date), "LatestNotificationTime" :: Maybe (Date), "StartLoggingTime" :: Maybe (Date), "StopLoggingTime" :: Maybe (Date), "LatestCloudWatchLogsDeliveryError" :: Maybe (String), "LatestCloudWatchLogsDeliveryTime" :: Maybe (Date), "LatestDigestDeliveryTime" :: Maybe (Date), "LatestDigestDeliveryError" :: Maybe (String), "LatestDeliveryAttemptTime" :: Maybe (String), "LatestNotificationAttemptTime" :: Maybe (String), "LatestNotificationAttemptSucceeded" :: Maybe (String), "LatestDeliveryAttemptSucceeded" :: Maybe (String), "TimeLoggingStarted" :: Maybe (String), "TimeLoggingStopped" :: Maybe (String) }) -> GetTrailStatusResponse
 ```
 
 Constructs GetTrailStatusResponse's fields from required parameters
@@ -1012,7 +1012,7 @@ Encode KmsKeyNotFoundException
 
 ``` purescript
 newtype ListPublicKeysRequest
-  = ListPublicKeysRequest { "StartTime" :: NullOrUndefined (Date), "EndTime" :: NullOrUndefined (Date), "NextToken" :: NullOrUndefined (String) }
+  = ListPublicKeysRequest { "StartTime" :: Maybe (Date), "EndTime" :: Maybe (Date), "NextToken" :: Maybe (String) }
 ```
 
 <p>Requests the public keys for a specified time range.</p>
@@ -1037,7 +1037,7 @@ Constructs ListPublicKeysRequest from required parameters
 #### `newListPublicKeysRequest'`
 
 ``` purescript
-newListPublicKeysRequest' :: ({ "StartTime" :: NullOrUndefined (Date), "EndTime" :: NullOrUndefined (Date), "NextToken" :: NullOrUndefined (String) } -> { "StartTime" :: NullOrUndefined (Date), "EndTime" :: NullOrUndefined (Date), "NextToken" :: NullOrUndefined (String) }) -> ListPublicKeysRequest
+newListPublicKeysRequest' :: ({ "StartTime" :: Maybe (Date), "EndTime" :: Maybe (Date), "NextToken" :: Maybe (String) } -> { "StartTime" :: Maybe (Date), "EndTime" :: Maybe (Date), "NextToken" :: Maybe (String) }) -> ListPublicKeysRequest
 ```
 
 Constructs ListPublicKeysRequest's fields from required parameters
@@ -1046,7 +1046,7 @@ Constructs ListPublicKeysRequest's fields from required parameters
 
 ``` purescript
 newtype ListPublicKeysResponse
-  = ListPublicKeysResponse { "PublicKeyList" :: NullOrUndefined (PublicKeyList), "NextToken" :: NullOrUndefined (String) }
+  = ListPublicKeysResponse { "PublicKeyList" :: Maybe (PublicKeyList), "NextToken" :: Maybe (String) }
 ```
 
 <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
@@ -1071,7 +1071,7 @@ Constructs ListPublicKeysResponse from required parameters
 #### `newListPublicKeysResponse'`
 
 ``` purescript
-newListPublicKeysResponse' :: ({ "PublicKeyList" :: NullOrUndefined (PublicKeyList), "NextToken" :: NullOrUndefined (String) } -> { "PublicKeyList" :: NullOrUndefined (PublicKeyList), "NextToken" :: NullOrUndefined (String) }) -> ListPublicKeysResponse
+newListPublicKeysResponse' :: ({ "PublicKeyList" :: Maybe (PublicKeyList), "NextToken" :: Maybe (String) } -> { "PublicKeyList" :: Maybe (PublicKeyList), "NextToken" :: Maybe (String) }) -> ListPublicKeysResponse
 ```
 
 Constructs ListPublicKeysResponse's fields from required parameters
@@ -1080,7 +1080,7 @@ Constructs ListPublicKeysResponse's fields from required parameters
 
 ``` purescript
 newtype ListTagsRequest
-  = ListTagsRequest { "ResourceIdList" :: ResourceIdList, "NextToken" :: NullOrUndefined (String) }
+  = ListTagsRequest { "ResourceIdList" :: ResourceIdList, "NextToken" :: Maybe (String) }
 ```
 
 <p>Specifies a list of trail tags to return.</p>
@@ -1105,7 +1105,7 @@ Constructs ListTagsRequest from required parameters
 #### `newListTagsRequest'`
 
 ``` purescript
-newListTagsRequest' :: ResourceIdList -> ({ "ResourceIdList" :: ResourceIdList, "NextToken" :: NullOrUndefined (String) } -> { "ResourceIdList" :: ResourceIdList, "NextToken" :: NullOrUndefined (String) }) -> ListTagsRequest
+newListTagsRequest' :: ResourceIdList -> ({ "ResourceIdList" :: ResourceIdList, "NextToken" :: Maybe (String) } -> { "ResourceIdList" :: ResourceIdList, "NextToken" :: Maybe (String) }) -> ListTagsRequest
 ```
 
 Constructs ListTagsRequest's fields from required parameters
@@ -1114,7 +1114,7 @@ Constructs ListTagsRequest's fields from required parameters
 
 ``` purescript
 newtype ListTagsResponse
-  = ListTagsResponse { "ResourceTagList" :: NullOrUndefined (ResourceTagList), "NextToken" :: NullOrUndefined (String) }
+  = ListTagsResponse { "ResourceTagList" :: Maybe (ResourceTagList), "NextToken" :: Maybe (String) }
 ```
 
 <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
@@ -1139,7 +1139,7 @@ Constructs ListTagsResponse from required parameters
 #### `newListTagsResponse'`
 
 ``` purescript
-newListTagsResponse' :: ({ "ResourceTagList" :: NullOrUndefined (ResourceTagList), "NextToken" :: NullOrUndefined (String) } -> { "ResourceTagList" :: NullOrUndefined (ResourceTagList), "NextToken" :: NullOrUndefined (String) }) -> ListTagsResponse
+newListTagsResponse' :: ({ "ResourceTagList" :: Maybe (ResourceTagList), "NextToken" :: Maybe (String) } -> { "ResourceTagList" :: Maybe (ResourceTagList), "NextToken" :: Maybe (String) }) -> ListTagsResponse
 ```
 
 Constructs ListTagsResponse's fields from required parameters
@@ -1214,7 +1214,7 @@ Encode LookupAttributesList
 
 ``` purescript
 newtype LookupEventsRequest
-  = LookupEventsRequest { "LookupAttributes" :: NullOrUndefined (LookupAttributesList), "StartTime" :: NullOrUndefined (Date), "EndTime" :: NullOrUndefined (Date), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (NextToken) }
+  = LookupEventsRequest { "LookupAttributes" :: Maybe (LookupAttributesList), "StartTime" :: Maybe (Date), "EndTime" :: Maybe (Date), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (NextToken) }
 ```
 
 <p>Contains a request for LookupEvents.</p>
@@ -1239,7 +1239,7 @@ Constructs LookupEventsRequest from required parameters
 #### `newLookupEventsRequest'`
 
 ``` purescript
-newLookupEventsRequest' :: ({ "LookupAttributes" :: NullOrUndefined (LookupAttributesList), "StartTime" :: NullOrUndefined (Date), "EndTime" :: NullOrUndefined (Date), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (NextToken) } -> { "LookupAttributes" :: NullOrUndefined (LookupAttributesList), "StartTime" :: NullOrUndefined (Date), "EndTime" :: NullOrUndefined (Date), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (NextToken) }) -> LookupEventsRequest
+newLookupEventsRequest' :: ({ "LookupAttributes" :: Maybe (LookupAttributesList), "StartTime" :: Maybe (Date), "EndTime" :: Maybe (Date), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (NextToken) } -> { "LookupAttributes" :: Maybe (LookupAttributesList), "StartTime" :: Maybe (Date), "EndTime" :: Maybe (Date), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (NextToken) }) -> LookupEventsRequest
 ```
 
 Constructs LookupEventsRequest's fields from required parameters
@@ -1248,7 +1248,7 @@ Constructs LookupEventsRequest's fields from required parameters
 
 ``` purescript
 newtype LookupEventsResponse
-  = LookupEventsResponse { "Events" :: NullOrUndefined (EventsList), "NextToken" :: NullOrUndefined (NextToken) }
+  = LookupEventsResponse { "Events" :: Maybe (EventsList), "NextToken" :: Maybe (NextToken) }
 ```
 
 <p>Contains a response to a LookupEvents action.</p>
@@ -1273,7 +1273,7 @@ Constructs LookupEventsResponse from required parameters
 #### `newLookupEventsResponse'`
 
 ``` purescript
-newLookupEventsResponse' :: ({ "Events" :: NullOrUndefined (EventsList), "NextToken" :: NullOrUndefined (NextToken) } -> { "Events" :: NullOrUndefined (EventsList), "NextToken" :: NullOrUndefined (NextToken) }) -> LookupEventsResponse
+newLookupEventsResponse' :: ({ "Events" :: Maybe (EventsList), "NextToken" :: Maybe (NextToken) } -> { "Events" :: Maybe (EventsList), "NextToken" :: Maybe (NextToken) }) -> LookupEventsResponse
 ```
 
 Constructs LookupEventsResponse's fields from required parameters
@@ -1350,7 +1350,7 @@ Encode OperationNotPermittedException
 
 ``` purescript
 newtype PublicKey
-  = PublicKey { "Value" :: NullOrUndefined (ByteBuffer), "ValidityStartTime" :: NullOrUndefined (Date), "ValidityEndTime" :: NullOrUndefined (Date), "Fingerprint" :: NullOrUndefined (String) }
+  = PublicKey { "Value" :: Maybe (ByteBuffer), "ValidityStartTime" :: Maybe (Date), "ValidityEndTime" :: Maybe (Date), "Fingerprint" :: Maybe (String) }
 ```
 
 <p>Contains information about a returned public key.</p>
@@ -1375,7 +1375,7 @@ Constructs PublicKey from required parameters
 #### `newPublicKey'`
 
 ``` purescript
-newPublicKey' :: ({ "Value" :: NullOrUndefined (ByteBuffer), "ValidityStartTime" :: NullOrUndefined (Date), "ValidityEndTime" :: NullOrUndefined (Date), "Fingerprint" :: NullOrUndefined (String) } -> { "Value" :: NullOrUndefined (ByteBuffer), "ValidityStartTime" :: NullOrUndefined (Date), "ValidityEndTime" :: NullOrUndefined (Date), "Fingerprint" :: NullOrUndefined (String) }) -> PublicKey
+newPublicKey' :: ({ "Value" :: Maybe (ByteBuffer), "ValidityStartTime" :: Maybe (Date), "ValidityEndTime" :: Maybe (Date), "Fingerprint" :: Maybe (String) } -> { "Value" :: Maybe (ByteBuffer), "ValidityStartTime" :: Maybe (Date), "ValidityEndTime" :: Maybe (Date), "Fingerprint" :: Maybe (String) }) -> PublicKey
 ```
 
 Constructs PublicKey's fields from required parameters
@@ -1432,7 +1432,7 @@ Constructs PutEventSelectorsRequest's fields from required parameters
 
 ``` purescript
 newtype PutEventSelectorsResponse
-  = PutEventSelectorsResponse { "TrailARN" :: NullOrUndefined (String), "EventSelectors" :: NullOrUndefined (EventSelectors) }
+  = PutEventSelectorsResponse { "TrailARN" :: Maybe (String), "EventSelectors" :: Maybe (EventSelectors) }
 ```
 
 ##### Instances
@@ -1455,7 +1455,7 @@ Constructs PutEventSelectorsResponse from required parameters
 #### `newPutEventSelectorsResponse'`
 
 ``` purescript
-newPutEventSelectorsResponse' :: ({ "TrailARN" :: NullOrUndefined (String), "EventSelectors" :: NullOrUndefined (EventSelectors) } -> { "TrailARN" :: NullOrUndefined (String), "EventSelectors" :: NullOrUndefined (EventSelectors) }) -> PutEventSelectorsResponse
+newPutEventSelectorsResponse' :: ({ "TrailARN" :: Maybe (String), "EventSelectors" :: Maybe (EventSelectors) } -> { "TrailARN" :: Maybe (String), "EventSelectors" :: Maybe (EventSelectors) }) -> PutEventSelectorsResponse
 ```
 
 Constructs PutEventSelectorsResponse's fields from required parameters
@@ -1480,7 +1480,7 @@ Encode ReadWriteType
 
 ``` purescript
 newtype RemoveTagsRequest
-  = RemoveTagsRequest { "ResourceId" :: String, "TagsList" :: NullOrUndefined (TagsList) }
+  = RemoveTagsRequest { "ResourceId" :: String, "TagsList" :: Maybe (TagsList) }
 ```
 
 <p>Specifies the tags to remove from a trail.</p>
@@ -1505,7 +1505,7 @@ Constructs RemoveTagsRequest from required parameters
 #### `newRemoveTagsRequest'`
 
 ``` purescript
-newRemoveTagsRequest' :: String -> ({ "ResourceId" :: String, "TagsList" :: NullOrUndefined (TagsList) } -> { "ResourceId" :: String, "TagsList" :: NullOrUndefined (TagsList) }) -> RemoveTagsRequest
+newRemoveTagsRequest' :: String -> ({ "ResourceId" :: String, "TagsList" :: Maybe (TagsList) } -> { "ResourceId" :: String, "TagsList" :: Maybe (TagsList) }) -> RemoveTagsRequest
 ```
 
 Constructs RemoveTagsRequest's fields from required parameters
@@ -1532,7 +1532,7 @@ Encode RemoveTagsResponse
 
 ``` purescript
 newtype Resource
-  = Resource { "ResourceType" :: NullOrUndefined (String), "ResourceName" :: NullOrUndefined (String) }
+  = Resource { "ResourceType" :: Maybe (String), "ResourceName" :: Maybe (String) }
 ```
 
 <p>Specifies the type and name of a resource referenced by an event.</p>
@@ -1557,7 +1557,7 @@ Constructs Resource from required parameters
 #### `newResource'`
 
 ``` purescript
-newResource' :: ({ "ResourceType" :: NullOrUndefined (String), "ResourceName" :: NullOrUndefined (String) } -> { "ResourceType" :: NullOrUndefined (String), "ResourceName" :: NullOrUndefined (String) }) -> Resource
+newResource' :: ({ "ResourceType" :: Maybe (String), "ResourceName" :: Maybe (String) } -> { "ResourceType" :: Maybe (String), "ResourceName" :: Maybe (String) }) -> Resource
 ```
 
 Constructs Resource's fields from required parameters
@@ -1618,7 +1618,7 @@ Encode ResourceNotFoundException
 
 ``` purescript
 newtype ResourceTag
-  = ResourceTag { "ResourceId" :: NullOrUndefined (String), "TagsList" :: NullOrUndefined (TagsList) }
+  = ResourceTag { "ResourceId" :: Maybe (String), "TagsList" :: Maybe (TagsList) }
 ```
 
 <p>A resource tag.</p>
@@ -1643,7 +1643,7 @@ Constructs ResourceTag from required parameters
 #### `newResourceTag'`
 
 ``` purescript
-newResourceTag' :: ({ "ResourceId" :: NullOrUndefined (String), "TagsList" :: NullOrUndefined (TagsList) } -> { "ResourceId" :: NullOrUndefined (String), "TagsList" :: NullOrUndefined (TagsList) }) -> ResourceTag
+newResourceTag' :: ({ "ResourceId" :: Maybe (String), "TagsList" :: Maybe (TagsList) } -> { "ResourceId" :: Maybe (String), "TagsList" :: Maybe (TagsList) }) -> ResourceTag
 ```
 
 Constructs ResourceTag's fields from required parameters
@@ -1808,7 +1808,7 @@ Encode StopLoggingResponse
 
 ``` purescript
 newtype Tag
-  = Tag { "Key" :: String, "Value" :: NullOrUndefined (String) }
+  = Tag { "Key" :: String, "Value" :: Maybe (String) }
 ```
 
 <p>A custom key-value pair associated with a resource such as a CloudTrail trail.</p>
@@ -1833,7 +1833,7 @@ Constructs Tag from required parameters
 #### `newTag'`
 
 ``` purescript
-newTag' :: String -> ({ "Key" :: String, "Value" :: NullOrUndefined (String) } -> { "Key" :: String, "Value" :: NullOrUndefined (String) }) -> Tag
+newTag' :: String -> ({ "Key" :: String, "Value" :: Maybe (String) } -> { "Key" :: String, "Value" :: Maybe (String) }) -> Tag
 ```
 
 Constructs Tag's fields from required parameters
@@ -1878,7 +1878,7 @@ Encode TagsList
 
 ``` purescript
 newtype Trail
-  = Trail { "Name" :: NullOrUndefined (String), "S3BucketName" :: NullOrUndefined (String), "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "SnsTopicARN" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "HomeRegion" :: NullOrUndefined (String), "TrailARN" :: NullOrUndefined (String), "LogFileValidationEnabled" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String), "HasCustomEventSelectors" :: NullOrUndefined (Boolean) }
+  = Trail { "Name" :: Maybe (String), "S3BucketName" :: Maybe (String), "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "SnsTopicARN" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "HomeRegion" :: Maybe (String), "TrailARN" :: Maybe (String), "LogFileValidationEnabled" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String), "HasCustomEventSelectors" :: Maybe (Boolean) }
 ```
 
 <p>The settings for a trail.</p>
@@ -1903,7 +1903,7 @@ Constructs Trail from required parameters
 #### `newTrail'`
 
 ``` purescript
-newTrail' :: ({ "Name" :: NullOrUndefined (String), "S3BucketName" :: NullOrUndefined (String), "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "SnsTopicARN" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "HomeRegion" :: NullOrUndefined (String), "TrailARN" :: NullOrUndefined (String), "LogFileValidationEnabled" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String), "HasCustomEventSelectors" :: NullOrUndefined (Boolean) } -> { "Name" :: NullOrUndefined (String), "S3BucketName" :: NullOrUndefined (String), "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "SnsTopicARN" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "HomeRegion" :: NullOrUndefined (String), "TrailARN" :: NullOrUndefined (String), "LogFileValidationEnabled" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String), "HasCustomEventSelectors" :: NullOrUndefined (Boolean) }) -> Trail
+newTrail' :: ({ "Name" :: Maybe (String), "S3BucketName" :: Maybe (String), "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "SnsTopicARN" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "HomeRegion" :: Maybe (String), "TrailARN" :: Maybe (String), "LogFileValidationEnabled" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String), "HasCustomEventSelectors" :: Maybe (Boolean) } -> { "Name" :: Maybe (String), "S3BucketName" :: Maybe (String), "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "SnsTopicARN" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "HomeRegion" :: Maybe (String), "TrailARN" :: Maybe (String), "LogFileValidationEnabled" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String), "HasCustomEventSelectors" :: Maybe (Boolean) }) -> Trail
 ```
 
 Constructs Trail's fields from required parameters
@@ -2016,7 +2016,7 @@ Encode UnsupportedOperationException
 
 ``` purescript
 newtype UpdateTrailRequest
-  = UpdateTrailRequest { "Name" :: String, "S3BucketName" :: NullOrUndefined (String), "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "EnableLogFileValidation" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String) }
+  = UpdateTrailRequest { "Name" :: String, "S3BucketName" :: Maybe (String), "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "EnableLogFileValidation" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String) }
 ```
 
 <p>Specifies settings to update for the trail.</p>
@@ -2041,7 +2041,7 @@ Constructs UpdateTrailRequest from required parameters
 #### `newUpdateTrailRequest'`
 
 ``` purescript
-newUpdateTrailRequest' :: String -> ({ "Name" :: String, "S3BucketName" :: NullOrUndefined (String), "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "EnableLogFileValidation" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String) } -> { "Name" :: String, "S3BucketName" :: NullOrUndefined (String), "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "EnableLogFileValidation" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String) }) -> UpdateTrailRequest
+newUpdateTrailRequest' :: String -> ({ "Name" :: String, "S3BucketName" :: Maybe (String), "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "EnableLogFileValidation" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String) } -> { "Name" :: String, "S3BucketName" :: Maybe (String), "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "EnableLogFileValidation" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String) }) -> UpdateTrailRequest
 ```
 
 Constructs UpdateTrailRequest's fields from required parameters
@@ -2050,7 +2050,7 @@ Constructs UpdateTrailRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateTrailResponse
-  = UpdateTrailResponse { "Name" :: NullOrUndefined (String), "S3BucketName" :: NullOrUndefined (String), "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "SnsTopicARN" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "TrailARN" :: NullOrUndefined (String), "LogFileValidationEnabled" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String) }
+  = UpdateTrailResponse { "Name" :: Maybe (String), "S3BucketName" :: Maybe (String), "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "SnsTopicARN" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "TrailARN" :: Maybe (String), "LogFileValidationEnabled" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String) }
 ```
 
 <p>Returns the objects or data listed below if successful. Otherwise, returns an error.</p>
@@ -2075,7 +2075,7 @@ Constructs UpdateTrailResponse from required parameters
 #### `newUpdateTrailResponse'`
 
 ``` purescript
-newUpdateTrailResponse' :: ({ "Name" :: NullOrUndefined (String), "S3BucketName" :: NullOrUndefined (String), "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "SnsTopicARN" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "TrailARN" :: NullOrUndefined (String), "LogFileValidationEnabled" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String) } -> { "Name" :: NullOrUndefined (String), "S3BucketName" :: NullOrUndefined (String), "S3KeyPrefix" :: NullOrUndefined (String), "SnsTopicName" :: NullOrUndefined (String), "SnsTopicARN" :: NullOrUndefined (String), "IncludeGlobalServiceEvents" :: NullOrUndefined (Boolean), "IsMultiRegionTrail" :: NullOrUndefined (Boolean), "TrailARN" :: NullOrUndefined (String), "LogFileValidationEnabled" :: NullOrUndefined (Boolean), "CloudWatchLogsLogGroupArn" :: NullOrUndefined (String), "CloudWatchLogsRoleArn" :: NullOrUndefined (String), "KmsKeyId" :: NullOrUndefined (String) }) -> UpdateTrailResponse
+newUpdateTrailResponse' :: ({ "Name" :: Maybe (String), "S3BucketName" :: Maybe (String), "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "SnsTopicARN" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "TrailARN" :: Maybe (String), "LogFileValidationEnabled" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String) } -> { "Name" :: Maybe (String), "S3BucketName" :: Maybe (String), "S3KeyPrefix" :: Maybe (String), "SnsTopicName" :: Maybe (String), "SnsTopicARN" :: Maybe (String), "IncludeGlobalServiceEvents" :: Maybe (Boolean), "IsMultiRegionTrail" :: Maybe (Boolean), "TrailARN" :: Maybe (String), "LogFileValidationEnabled" :: Maybe (Boolean), "CloudWatchLogsLogGroupArn" :: Maybe (String), "CloudWatchLogsRoleArn" :: Maybe (String), "KmsKeyId" :: Maybe (String) }) -> UpdateTrailResponse
 ```
 
 Constructs UpdateTrailResponse's fields from required parameters
